@@ -19,7 +19,7 @@
 		"barryvdh/laravel-debugbar": "1.8.*",
 		"phpspec/phpspec": "~2.1",
 	    "phpspec/nyan-formatters": "1.*"
-		},
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
