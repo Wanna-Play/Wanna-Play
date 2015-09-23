@@ -15,7 +15,7 @@
 		"bbatsche/entrust": "~2@beta"
 	},
 	"require-dev":{
-		"way/generators": "~3.0",
+		"way/generators": "~2.6",
 		"barryvdh/laravel-debugbar": "1.8.*",
 		"phpspec/phpspec": "~2.1",
 	    "phpspec/nyan-formatters": "1.*"
