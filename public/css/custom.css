@@ -51,14 +51,14 @@ h1 {
     font-family: 'PTSans', serif;
     font-weight: bold;
     font-size: 6rem;
-    color: #ffffff;
+    color: #efefef;
 }
 
 h2 {
     font-family: 'PTSans', serif;
     font-weight: bold;
     font-size: 3rem;
-    color: #292900;
+    color: #000;
 }
 
 h4 {
@@ -95,7 +95,6 @@ h4 {
 .navbar-default .navbar-nav > .logIn > a:hover {
     background-color: #C6E0E0 !important;
     background-image: none;
-    color: #292900;
 }
 
 #homePageImage > .container > .navbar-default .navbar-nav > li > a {
@@ -128,7 +127,6 @@ h4 {
     width: 100%;
     border-radius: 0;
     background-color: #64B98B;
-    color: #333333;
 }
 
 
@@ -143,6 +141,24 @@ h4 {
 
 .form-control {
     border-radius: 0px;
+}
+
+.homeHeadLine {
+    text-align: center;
+    display: block;
+}
+
+.btn-signUp {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #FFA347;
+    color: #ffffff;
+}
+
+/* Dashboard */
+#playerStats {
+    margin-bottom: 50px;
 }
 
 

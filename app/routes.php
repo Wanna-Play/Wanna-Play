@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@showWelcome');
 
 Route::get('login', 'HomeController@showLogin');
+
+Route::get('dashboard', 'HomeController@showDashboard');
