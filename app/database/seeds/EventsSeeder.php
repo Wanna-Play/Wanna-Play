@@ -11,13 +11,13 @@ class EventsSeeder extends Seeder {
 		$event = new event;
 
 		$event->event_name='Soccer Game';
-		$event->Location_ID='San Pedro Park';
-		$event->Sport='Soccer';
-		$event->Gender='Co-Ed';
-		$event->Skill_level='Intermediate';
-		$event->Amount='$2.00 to get into the park';
-		$event->Organizer_ID=1;
-		$event->Description='testing 123';
+		$event->location_ID='San Pedro Park';
+		$event->sport='Soccer';
+		$event->gender='Co-Ed';
+		$event->skill_level='Intermediate';
+		$event->amount='$2.00';
+		$event->organizer_id=1;
+		$event->description='testing 123';
 		
 
 

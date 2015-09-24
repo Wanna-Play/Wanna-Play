@@ -9,12 +9,13 @@ class SportsSeeder extends Seeder {
 	public function run(){
 
 		$sport = new Sport;
-		$sport->Sport='Football';
-		$sport->Sport='Soccer';
-		$sport->Sport='Quidditch';
-		$sport->Sport='Bocce Ball';
-		$sport->Sport='Rugby';
-		$sport->Sport='Disc Golf';
+		
+		$sport->sport='Football';
+		$sport->sport='Soccer';
+		$sport->sport='Quidditch';
+		$sport->sport='Bocce Ball';
+		$sport->sport='Rugby';
+		$sport->sport='Disc Golf';
 
 
 	}

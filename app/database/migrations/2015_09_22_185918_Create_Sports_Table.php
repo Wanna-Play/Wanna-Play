@@ -12,11 +12,12 @@ class CreateSportsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Sports', function(Blueprint $table)
-			{
+		Schema::create('sports', function(Blueprint $table)
+		{
 			$table->increments('id');
 			
-			$table->string('sports', 255)->nullable();
+			$table->string('sport', 255)->unique();
+
 		});
 	}
 
