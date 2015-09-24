@@ -2,27 +2,10 @@
 
 @section('content')
 <div class="col-xs-12">
-	<section id="loginForm">
-		<div class="col-xs-12 col-sm-6 pull-left">
+	<div id="playerStats">
+		<div class="col-xs-12 col-sm-9 pull-left">
 			<form>
-				<h2>Log In</h2>
-				<div class="form-group">
-					<label for="loginUserName">Username </label>
-					<input type="text" class="form-control" id="loginUserName">
-				</div>
-				<div class="form-group">
-					<label for="loginPassword">Password </label>
-					<input type="password" class="form-control" id="loginPassword">
-				</div>
-				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Log In</a>
-			</form>
-		</div>
-	</section>
-
-	<section id="signUpForm">
-		<div class="col-xs-12 col-sm-6 pull-right">
-			<form>
-				<h2>Sign Up</h2>
+				<h2>Player Stats</h2>
 				<div class="form-group col-sm-6 noPaddingLeft">
 					<label for="firstName">First name</label>
 					<input type="text" class="form-control" id="firstName">
@@ -51,18 +34,30 @@
 					<label for="selectUserName">Username</label>
 					<input type="text" class="form-control" id="selectUserName">
 				</div>
-				<div class="form-group">
-					<label for="selectPassword">Password</label>
-					<input type="password" class="form-control" id="selectPassword">
-				</div>
-				<div class="form-group">
-					<label for="reTypePassword">Retype Password</label>
-					<input type="password" class="form-control" id="reTypePassword">
-				</div>
-				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Submit</a>
+				<a href="#" class="btn btn-lg btn-block">Edit</a>
 			</form>
+			
+			<h2>Update Password</h2>
+			<p>To update your password, we will redirect you to a separate page.</p>
+			<a href="#" class="btn btn-lg btn-block">Edit</a>
+
+			<h2>Events</h2>
+
+			<a href="#" class="btn btn-lg btn-block">Create New Event</a>
+			<ul>
+				<h3>Upcoming Events</h3>
+				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
+				<li>Oct. 3rd, 7 a.m. | Swimming at San Pedro Springs Park <a href="#" class="btn btn-xs btn-primary">Cancel RSVP</a></li>
+				<li>Oct. 5th, 6 p.m. | Golf at Brackenridge <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
+			</ul>
+
+			<ul>
+				<h3>Past Events</h3>
+				<li>Sept. 1st, 4 p.m. | Disc Golf at Trinity</li>
+			</ul>
 		</div>
-	</section>
+
+	</div>
 </div>
 
 @stop
