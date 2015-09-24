@@ -1,0 +1,17 @@
+{
+  "name": "wannaplay",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Wanna-Play/Wanna-Play",
+  "authors": [
+    "ciaorachel"
+  ],
+  "description": "wannaplay",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

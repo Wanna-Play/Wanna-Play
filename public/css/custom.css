@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'PTSans';
+    src: url('../fonts/ptsans/PT_Sans-Web-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PTSans';
+    src: url('../fonts/ptsans/PT_Sans-Web-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: bold;
+}
+
+
+@font-face {
+    font-family: 'PTSans';
+    src: url('../fonts/ptsans/PT_Sans-Web-BoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'PTSans';
+    src: url('../fonts/ptsans/PT_Sans-Web-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'DidactGothic';
+    src: url('../fonts/didactgothic/DidactGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'DidactGothic', sans-serif;
+    font-size: 1.7rem;
+}
+
+
+#homePageImage {
+    background-image: url(/img/football-field.png);
+    background-repeat: no-repeat;
+    background-position: top right fixed;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'PTSans', serif;
+    font-weight: bold;
+    font-size: 6rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-family: 'PTSans', serif;
+    font-weight: bold;
+    font-size: 3rem;
+    color: #292900;
+}
+
+h4 {
+    font-family: 'PTSans', serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #292900;
+}
+
+
+/* Navbar */
+.navbar-default .navbar-brand {
+	font-family: 'PTSans', serif;
+    font-weight: bold;
+    font-size: 2.5rem;
+    color: #292900;
+}
+
+.navbar-default {
+	background-color: transparent;
+	border-color: transparent;
+	background-image: none;
+	background-repeat: no-repeat;
+	border-radius: none;
+	box-shadow: none;
+    margin-top: 15px;
+}
+
+.navbar-default .navbar-nav > .logIn > a {
+	background-color: #B8D8D8 !important;
+	background-image: none;
+}
+
+.navbar-default .navbar-nav > .logIn > a:hover {
+    background-color: #C6E0E0 !important;
+    background-image: none;
+    color: #292900;
+}
+
+#homePageImage > .container > .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+#homePageImage > .container > .navbar-default .navbar-nav > li > a:hover {
+    color: #292900;
+}
+
+
+
+
+/* Home page styles */
+#homeSelectionForm {
+    margin-bottom: 100px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #3DA76E;
+    color: #ffffff;
+}
+
+.btn-block:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #64B98B;
+    color: #333333;
+}
+
+
+/* Login / Sign Up page */
+.noPaddingLeft {
+    padding-left: 0px;
+}
+
+.noPaddingRight {
+    padding-right: 0px;
+}
+
+.form-control {
+    border-radius: 0px;
+}
+
+
+/* Footer */
+.footer {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    min-height: 100px;
+    max-height: 100%;
+    background-color: #efefef;
+}
+

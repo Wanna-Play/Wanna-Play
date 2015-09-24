@@ -8,7 +8,7 @@ class PlayerSeeder extends Seeder {
 	 */
 	public function run(){
 
-		$event = new event;
+		$player = new Player;
 
 		$player->first_name='Amanda';
 		$player->last_name='Ortiz';
@@ -18,7 +18,7 @@ class PlayerSeeder extends Seeder {
 		$player->city_id='1';
 		$player->sports_tags='1,2';
 		$player->profile_picture='AmandaO.img';
-		
+
 
 
 	}

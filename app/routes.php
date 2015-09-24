@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 
-Route::resource('players', 'UsersController');
+Route::get('/', 'HomeController@showWelcome');
+
+Route::get('login', 'HomeController@showLogin');
