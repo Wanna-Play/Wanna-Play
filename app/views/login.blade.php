@@ -14,7 +14,7 @@
 					<label for="loginPassword">Password </label>
 					<input type="password" class="form-control" id="loginPassword">
 				</div>
-				<a href="#" class="btn btn-lg btn-block">Log In</a>
+				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Log In</a>
 			</form>
 		</div>
 	</section>
@@ -59,7 +59,8 @@
 					<label for="reTypePassword">Retype Password</label>
 					<input type="password" class="form-control" id="reTypePassword">
 				</div>
-				<a href="#" class="btn btn-lg btn-signUp">Submit</a>
+
+				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Submit</a>	
 			</form>
 		</div>
 	</section>
