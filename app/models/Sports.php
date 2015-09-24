@@ -4,8 +4,7 @@ use \Esensi\Model\SoftModel;
 
 class Sports extends SoftModel {
 
-	protected $table = 'Sports';
-	protected $fillable = [];
+	protected $table = 'sports';
 
 	protected $rules = array(
 		'sport' => 'required|max:250|unique'
@@ -14,5 +13,10 @@ class Sports extends SoftModel {
 	public function players()
 	{
 		return $this->hasMany('Player');
+	}
+
+	public function events()
+	{
+		return $this->belongsTo('Event');
 	}
 }

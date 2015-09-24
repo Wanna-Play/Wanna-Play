@@ -5,16 +5,6 @@ use \Esensi\Model\SoftModel;
 class Location extends SoftModel {
 	protected $table = 'locations';
 
-	protected $fillable = [
-		'Name_Of_Location',
-		'Address',
-		'City',
-		'State',
-		'Zip',
-		'Phone',
-		'Url'
-	];
-
 	protected $rules = array (
 
 		'Name_Of_Location' => 'required|max:255',

@@ -7,7 +7,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends SoftModel implements UserInterface, RemindableInterface {
+class Player extends SoftModel implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -45,5 +45,18 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 	{
 		$this->hasMany('Sports')
 	}
+
+	public function playerLocation()
+	{
+		return $this->belongsTo('PlayerLocation', 'city_id');
+	}
+
+	public function uploadImage($file)
+    {
+        $name = $file->getClientOriginalName();
+        $path = 'images/event-imgs/';
+        $file->move(public_path() . $path, $name);
+        $this->event_image = $path . $name;
+    }
 
 }

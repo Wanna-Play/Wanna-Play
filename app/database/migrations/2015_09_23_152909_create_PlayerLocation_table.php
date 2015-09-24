@@ -12,14 +12,17 @@ class CreatePlayerLocationTable extends Migration {
 	 */
 	public function up()
 	{
-		$table->increments('id');
-		
+		Schema::create('PlayerLocations', function(Blueprint $table)
+			{
+			$table->increments('id');
+
 			$table->string('City', 255)->unique();
 			$table->string('State', 255);
 
 			$table->softDeletes();
 			$table->rememberToken();
 			$table->timestamps();
+		});
 	}
 
 	/**
