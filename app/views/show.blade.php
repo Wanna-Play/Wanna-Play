@@ -3,6 +3,8 @@
 
 @section('content')
 
+<a href="#" class="btn btn-primary">Edit Event</a>
+
 <h1>Baseball at Brackenridge Park</h1>
 
 <p>Sport: Baseball</p>
@@ -23,6 +25,8 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
 <p>Skill Level: Beginner | Gender: Mixed</p>
 
-<a href="#" class="btn btn-primary">RSVP for Event</a> <a href="#" class="btn btn-primary">Contact Organizer</a>
+<p><a href="#" class="btn btn-primary">RSVP for Event</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
+
+<p><a href="#" class="btn btn-primary">Cancel RSVP</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
 
 @stop
