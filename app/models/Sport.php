@@ -7,7 +7,7 @@ class Sport extends SoftModel {
 	protected $table = 'sports';
 
 	protected $rules = array(
-		'sport' => 'required|max:250|unique'
+		'sport' => 'required|max:250|unique:sports'
 	);
 
 	public function players()

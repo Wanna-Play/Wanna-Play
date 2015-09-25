@@ -8,10 +8,8 @@ class Location extends SoftModel {
 	protected $rules = array (
 
 		'name_of_location' => 'required|max:255',
-		'street' => 'required|max:255',
+		'address' => 'required|max:255',
 		'city' => 'required|max:255',
-		'zip' => 'required|max:5'
-
 	);
 
 	public function events()
