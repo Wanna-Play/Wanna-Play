@@ -57,5 +57,7 @@
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
+
+@yield('script')
 </body>
 </html>

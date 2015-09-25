@@ -59,7 +59,8 @@
 					<label for="reTypePassword">Retype Password</label>
 					<input type="password" class="form-control" id="reTypePassword">
 				</div>
-				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Submit</a>
+
+				<a href="{{{ action('HomeController@showDashboard') }}}" class="btn btn-lg btn-block">Submit</a>	
 			</form>
 		</div>
 	</section>
