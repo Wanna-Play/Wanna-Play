@@ -14,12 +14,12 @@ class CreateEventSportsTable extends Migration {
 	{
 		Schema::create('event_sport', function(Blueprint $table)
 		{
-		$table->integer('user_id')->unsigned();
+		$table->integer('sport_id')->unsigned();
 		$table->integer('event_id')->unsigned();
 
-		$table->primary(['user_id','event_id']);
+		$table->primary(['sport_id','event_id']);
 
-		$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+		$table->foreign('sport_id')->references('id')->on('sports')->onDelete('cascade');
 		$table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
 		});
 	}

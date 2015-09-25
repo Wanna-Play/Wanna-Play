@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder {
 		DB::table('sports')->delete();
 		DB::table('users')->delete();
 
-		$this->call('PlayerSeeder');
+		$this->call('UserSeeder');
 		$this->call('LocationsSeeder');
 		$this->call('SportsSeeder');
 		$this->call('EventsSeeder');

@@ -19,12 +19,13 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 	protected $table = 'users';
 
 	protected $rules = array(
-		'first_name' => 'Required|max:255',
-		'last_name' => 'Required|max:255',
-		'email' => 'Required|max:255|unique:players',
-		'gender' => 'Required',
-		'city_id' => 'Required',
-		'password' => 'Required|max:255'
+		'first_name' => 'required|max:255',
+		'last_name' => 'required|max:255',
+		'username' => 'required|max:255|unique:users',
+		'email' => 'required|max:255|unique:users',
+		'gender' => 'required',
+		'city' => 'required|max:255',
+		'password' => 'required|max:255'
 	);
 
 	/**
@@ -43,7 +44,7 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 
 	public function sports()
 	{
-		$this->hasMany('Sports');
+		$this->hasMany('Sport');
 	}
 
 

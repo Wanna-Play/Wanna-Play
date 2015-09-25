@@ -7,28 +7,28 @@ class Event extends SoftModel {
 	protected $table = 'events';
 
 	protected $rules = array(
-		'event_name' => 'Required|max:255',
-		'location_id' => 'Required',
-		'sport_id' => 'Required',
-		'skill_level' => 'Required',
+		'event_name' => 'required|max:255',
+		'location_id' => 'required',
+		'sport_id' => 'required',
+		'skill_level' => 'required',
 		'amount' => 'max:255',
-		'user_id' => 'Required',
+		'user_id' => 'required',
 		'description' => 'max:1500'
 	);
 
 	public function organizer()
 	{
-		return $this->belongsTo('Player', 'Organizer_id');
+		return $this->belongsTo('User', 'organizer_id');
 	}
 
 	public function sport()
 	{
-		return $this->has('Sports', 'Sport');
+		return $this->has('Sport', 'sport');
 	}
 
 	public function location()
 	{
-		return $this->belongsTo('Location', 'Location_ID');
+		return $this->belongsTo('Location', 'location_id');
 	}
 
 	public function uploadImage($file)
