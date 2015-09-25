@@ -15,16 +15,17 @@ class CreateEventsTable extends Migration {
 		Schema::create('events', function(Blueprint $table)
 		{
 			$table->increments('id');
-			
+
 			$table->string('event_name', 255)->nullable();
 			$table->integer('location_id')->unsinged();
 			$table->integer('sport_id')->unsigned();
 			$table->enum('gender', ['M', 'F'])->nullable();
 			$table->string('skill_level', 255);
 			$table->decimal('amount', 5, 2);
+			$table->string('description', 1500);
 
 			$table->integer('user_id')->unsigned();
-			
+
 			$table->softDeletes();
 			$table->timestamps();
 
@@ -41,7 +42,7 @@ class CreateEventsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Events');
+		Schema::drop('events');
 
 	}
 

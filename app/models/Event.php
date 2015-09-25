@@ -4,16 +4,16 @@ use \Esensi\Model\SoftModel;
 
 class Event extends SoftModel {
 
-	protected $table = 'Events';
+	protected $table = 'events';
 
 	protected $rules = array(
 		'event_name' => 'Required|max:255',
-		'Location_ID' => 'Required',
-		'Sport' => 'Required',
-		'Skill_Level' => 'Required',
-		'Amount' => 'max:255',
-		'Organizer_id' => 'Required',
-		'Description' => 'max:1500'
+		'location_id' => 'Required',
+		'sport_id' => 'Required',
+		'skill_level' => 'Required',
+		'amount' => 'max:255',
+		'user_id' => 'Required',
+		'description' => 'max:1500'
 	);
 
 	public function organizer()

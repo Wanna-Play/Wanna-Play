@@ -8,7 +8,7 @@ class PlayerSeeder extends Seeder {
 	 */
 	public function run(){
 
-		$player = new Player;
+		$player = new User();
 
 		$player->first_name='Amanda';
 		$player->last_name='Ortiz';

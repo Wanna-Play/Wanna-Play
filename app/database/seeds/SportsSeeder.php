@@ -8,8 +8,8 @@ class SportsSeeder extends Seeder {
 	 */
 	public function run(){
 
-		$sport = new Sport;
-		
+		$sport = new Sport();
+
 		$sport->sport='Football';
 		$sport->sport='Soccer';
 		$sport->sport='Quidditch';

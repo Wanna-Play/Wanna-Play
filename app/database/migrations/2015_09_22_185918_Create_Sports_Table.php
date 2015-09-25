@@ -26,7 +26,7 @@ class CreateSportsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Sports');
+		Schema::drop('sports');
 	}
 
 }

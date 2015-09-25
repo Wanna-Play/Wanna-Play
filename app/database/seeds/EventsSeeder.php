@@ -8,7 +8,7 @@ class EventsSeeder extends Seeder {
 	 */
 	public function run(){
 
-		$event = new event;
+		$event = new Event();
 
 		$event->event_name='Soccer Game';
 		$event->location_ID='San Pedro Park';
@@ -18,7 +18,7 @@ class EventsSeeder extends Seeder {
 		$event->amount='$2.00';
 		$event->organizer_id=1;
 		$event->description='testing 123';
-		
+
 
 
 	}

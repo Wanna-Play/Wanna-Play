@@ -7,7 +7,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Player extends SoftModel implements UserInterface, RemindableInterface {
+class User extends SoftModel implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -25,7 +25,7 @@ class Player extends SoftModel implements UserInterface, RemindableInterface {
 		'gender' => 'Required',
 		'city_id' => 'Required',
 		'password' => 'Required|max:255'
-	)
+	);
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -36,20 +36,16 @@ class Player extends SoftModel implements UserInterface, RemindableInterface {
 
 	protected $hashable = ['password'];
 
-	public function Events()
+	public function events()
 	{
 		$this->hasMany('Event');
 	}
 
 	public function sports()
 	{
-		$this->hasMany('Sports')
+		$this->hasMany('Sports');
 	}
 
-	public function playerLocation()
-	{
-		return $this->belongsTo('PlayerLocation', 'city_id');
-	}
 
 	public function uploadImage($file)
     {

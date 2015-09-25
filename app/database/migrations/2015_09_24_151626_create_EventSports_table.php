@@ -16,7 +16,7 @@ class CreateEventSportsTable extends Migration {
 		{
 		$table->integer('user_id')->unsigned();
 		$table->integer('event_id')->unsigned();
-	
+
 		$table->primary(['user_id','event_id']);
 
 		$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -31,7 +31,7 @@ class CreateEventSportsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Events');
+		Schema::drop('events');
 	}
 
 }

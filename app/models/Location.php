@@ -7,11 +7,11 @@ class Location extends SoftModel {
 
 	protected $rules = array (
 
-		'Name_Of_Location' => 'required|max:255',
-		'Street' => 'required|max:255',
-		'City' => 'required|max:255',
-		'State' => 'required|max:255',
-		'Zip' => 'required|max:11'
+		'name_of_location' => 'required|max:255',
+		'street' => 'required|max:255',
+		'city' => 'required|max:255',
+		'state' => 'required|max:255',
+		'zip' => 'required|max:5'
 
 	);
 

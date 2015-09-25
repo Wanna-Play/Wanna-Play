@@ -2,7 +2,7 @@
 
 use \Esensi\Model\SoftModel;
 
-class Sports extends SoftModel {
+class Sport extends SoftModel {
 
 	protected $table = 'sports';
 
@@ -12,7 +12,7 @@ class Sports extends SoftModel {
 
 	public function players()
 	{
-		return $this->hasMany('Player');
+		return $this->belongsToMany('User');
 	}
 
 	public function events()
