@@ -51,7 +51,7 @@ h1 {
     font-family: 'PTSans', serif;
     font-weight: bold;
     font-size: 6rem;
-    color: #efefef;
+    color: #292900;
 }
 
 h2 {
@@ -110,6 +110,10 @@ h4 {
 
 
 /* Home page styles */
+.whiteHeader {
+    color: #efefef !important;
+}
+
 #homeSelectionForm {
     margin-bottom: 100px;
 }
@@ -161,6 +165,36 @@ h4 {
     margin-bottom: 50px;
 }
 
+
+/* Search Results */
+
+
+#filterSearchResultsColumn {
+    height: 100%;
+}
+
+.thumbnailImage {
+    margin: 20px;
+}
+.resultsText {
+    display: inline-block;
+}
+
+.individualResult {
+    border: solid 1px #777;
+}
+
+.noHeaderSpace {
+    margin-top: 0px;
+}
+
+.updateResultsSubmit {
+    margin-top: 15px;
+}
+
+.media {
+    margin-bottom: 30px;
+}
 
 /* Footer */
 .footer {

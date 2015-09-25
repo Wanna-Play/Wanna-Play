@@ -18,15 +18,15 @@
 					<label for="faveSports">Favorite sports</label>
 					<input type="text" class="form-control" id="faveSports">
 				</div>
-				<div class="form-group col-sm-6 pull-left noPaddingLeft">
+				<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft">
 					<label for="selectCity">City</label>
 					<input type="text" class="form-control" id="selectCity">
 				</div>
-				<div class="form-group col-sm-4 noPaddingLeft noPaddingRight">
+				<div class="form-group col-xs-12 col-sm-4 noPaddingLeft noPaddingRight">
 					<label for="zipCode">ZIP code</label>
 					<input type="text" class="form-control" id="zipCode">
 				</div>
-				<div class="form-group col-sm-2 pull-right noPaddingRight">
+				<div class="form-group col-xs-12 col-sm-2 pull-right noPaddingRight">
 					<label for="selectGender">Gender</label>
 					<input type="text" class="form-control" id="selectGender">
 				</div>
@@ -43,7 +43,7 @@
 
 			<h2>Events</h2>
 
-			<a href="#" class="btn btn-lg btn-block">Create New Event</a>
+			<a href="{{{ action('HomeController@showCreateEvent') }}}" class="btn btn-lg btn-block">Create New Event</a>
 			<ul>
 				<h3>Upcoming Events</h3>
 				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
