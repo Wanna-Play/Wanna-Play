@@ -10,7 +10,7 @@ class Sport extends SoftModel {
 		'sport' => 'required|max:250|unique:sports'
 	);
 
-	public function players()
+	public function users()
 	{
 		return $this->belongsToMany('User');
 	}

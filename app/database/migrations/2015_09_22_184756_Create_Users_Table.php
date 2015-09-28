@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 255);
 			$table->enum('gender', ['M', 'F']);
 			$table->string('city', 255);
-			$table->string('sport')
 
 			$table->string('profile_picture', 255)->nullable();
 
@@ -31,7 +30,6 @@ class CreateUsersTable extends Migration {
 			$table->rememberToken();
 			$table->timestamps();
 
-			// $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 		});
 	}
 

@@ -1,18 +1,17 @@
 <?php
 
-use \Esensi\Model\SoftModel;
+use Esensi\Model\SoftModel;
 
-class Event extends SoftModel {
+class GameEvent extends SoftModel {
 
 	protected $table = 'events';
 
 	protected $rules = array(
 		'event_name' => 'required|max:255',
 		'location_id' => 'required',
-		'sport_id' => 'required',
 		'skill_level' => 'required',
 		'amount' => 'max:255',
-		'user_id' => 'required',
+		'organizer_id' => 'required',
 		'description' => 'max:1500'
 	);
 

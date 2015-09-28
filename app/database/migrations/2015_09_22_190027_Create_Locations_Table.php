@@ -19,8 +19,8 @@ class CreateLocationsTable extends Migration {
 			$table->string('name_of_location', 255);
 			$table->string('address', 255);
 			$table->string('city', 255);
-			$table->string('State', 255);
-			$table->integer('zip', 5);
+			$table->string('state', 255);
+			$table->string('zip', 5);
 			$table->string('phone', 20);
 			$table->string('url', 255);
 
