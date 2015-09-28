@@ -31,7 +31,7 @@ class CreateSportUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Events');
+		Schema::drop('sport_user');
 	}
 
 }

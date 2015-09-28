@@ -13,20 +13,22 @@ class CreateLocationsTable extends Migration {
 	public function up()
 	{
 		Schema::create('locations', function(Blueprint $table)
-		{
+			{
 			$table->increments('id');
-			
-			$table->string('name', 255)->nullable();
-			$table->string('address', 255)->nullable();
+
+			$table->string('name_of_location', 255);
+			$table->string('address', 255);
 			$table->string('city', 255);
-			$table->char('zip', 5);
-			$table->char('phone', 10);
+			$table->string('state', 255);
+			$table->string('zip', 5);
+			$table->string('phone', 20);
 			$table->string('url', 255);
 
-			
+
+			$table->softDeletes();
 			$table->rememberToken();
 			$table->timestamps();
-		});
+			});
 	}
 
 	/**
@@ -36,7 +38,7 @@ class CreateLocationsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Events');
+		Schema::drop('events');
 	}
 
 }

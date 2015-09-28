@@ -15,9 +15,8 @@ class CreateSportsTable extends Migration {
 		Schema::create('sports', function(Blueprint $table)
 		{
 			$table->increments('id');
-			
 			$table->string('sport', 255)->unique();
-
+			$table->timestamps();
 		});
 	}
 
@@ -28,7 +27,7 @@ class CreateSportsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Sports');
+		Schema::drop('sports');
 	}
 
 }

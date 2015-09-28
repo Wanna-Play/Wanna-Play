@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'HomeController@showWelcome');
 
 Route::get('login', 'HomeController@showLogin');
