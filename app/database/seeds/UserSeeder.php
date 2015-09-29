@@ -18,6 +18,7 @@ class UserSeeder extends Seeder {
 		$user->password_confirmation=$_ENV['USER_PASS'];
 		$user->gender=$_ENV['USER_GENDER'];
 		$user->city=$_ENV['USER_CITY'];
+		$user->zip=$_ENV['USER_ZIP'];
 		// $user->sports_tags=$_ENV['USER_SPORT'];
 		$user->profile_picture=$_ENV['USER_IMAGE'];
 		$user->save();

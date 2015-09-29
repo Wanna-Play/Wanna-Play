@@ -134,7 +134,7 @@ class UsersController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				return Redirect::action('UsersController@show', array($user->id));
+				return Redirect::action('HomeController@showDashboard', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',
@@ -151,12 +151,13 @@ class UsersController extends \BaseController {
 		$sports = explode (',', $value);
 		foreach ($sports as $sportName) {
 			/* firstOrCreate uses first instance or creates a new instantiation - 
-			stops tags table from duplicating tag names*/
-			$sport = Sport::firstOrCreate(array('name'=>$sportName));
+			stops sports table from duplicating sport names*/
+			$sport = Sport::firstOrCreate(array('sport'=>$sportName));
 			$sportIds[] = $sport->id;
 			/* sync is a Laravel method to attach related models; 
 			sync accepts array of ids to be placed on pivot table
-			only the ids in the array will be on the intermediate table post_tag_table.php*/
+			only the ids in the array will be on the intermediate table sport_user pivot table*/
+			
 			$user->sports()->sync($sportIds);
 		}
 	}
