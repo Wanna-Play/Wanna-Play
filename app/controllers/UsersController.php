@@ -21,12 +21,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		$dropdown     = [];
-		$dropdown[-1] = 'Add new City';
-		foreach ($cities as $city) {
-			$dropdown[$city->id] = $city->name;
-		}
-		return View::make('users.create')->with('dropdown', dropdown);
+		return View::make('users.create');
 	}
 
 	/**
