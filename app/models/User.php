@@ -25,6 +25,7 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 		'email' => 'required|max:255|unique:users',
 		'gender' => 'required',
 		'city' => 'required|max:255',
+		'zip' => 'required|max:99999',
 		'password' => 'required|max:255'
 	);
 

@@ -10,6 +10,8 @@ class Sport extends SoftModel {
 		'sport' => 'required|max:250|unique:sports'
 	);
 
+    protected $fillable = array('sport');
+
 	public function users()
 	{
 		return $this->belongsToMany('User');

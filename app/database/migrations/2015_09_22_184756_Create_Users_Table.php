@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration {
 			$table->string('password', 255);
 			$table->enum('gender', ['M', 'F']);
 			$table->string('city', 255);
+			$table->char('zip', 5);
 
 			$table->string('profile_picture', 255)->nullable();
 
