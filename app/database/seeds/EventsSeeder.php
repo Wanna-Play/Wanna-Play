@@ -7,15 +7,18 @@ class EventsSeeder extends Seeder {
 	 * @return void
 	 */
 	public function run(){
+		$location = Location::firstOrFail();
+		$user = User::firstOrFail();
+
 
 		$event = new GameEvent();
 
 		$event->event_name='Soccer Game';
-		$event->location_id=1;
+		$event->location_id=$location->id;
 		$event->gender='Co-Ed';
 		$event->skill_level='Intermediate';
 		$event->amount=2.00;
-		$event->organizer_id=1;
+		$event->organizer_id=$user->id;
 		$event->description='testing 123';
 		$event->save();
 
