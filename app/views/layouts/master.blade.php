@@ -24,6 +24,9 @@
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
+	{{-- Date Time Picker CSS --}}
+	<link rel="stylesheet" href="/bower/bower_components/datetimepicker/jquery.datetimepicker.css">
+
 	<title>Wanna Play</title>
 </head>
 <body>
@@ -48,7 +51,7 @@
 
 			<div class="col-sm-4">
 				<h4>The Team</h4>
-				<p>Meet our dev team: Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
+				<p>Meet our dev team: Julie Buser, Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
 			</div>
 
 			<div class="col-sm-4">
@@ -60,9 +63,13 @@
 
 
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
-{{-- Bootstrap jQuery --}}
-<link rel="stylesheet" href="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js">
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+{{-- Bootstrap JS --}}
+<script src="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+{{-- jQuery --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+<script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/js/jquery.tagsinput.js"></script>
 
 @yield('script')
