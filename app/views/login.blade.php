@@ -33,17 +33,17 @@
 					{{Form::text('last_name') }}
 				</div>
 
-				<div class="form-group sports" @if($errors->has('sports')) has-error @endif><strong>Favorite Sports: </strong>
+				<div class="form-group sports col-sm-6" @if($errors->has('sports')) has-error @endif><strong>Favorite Sports: </strong>
 				<input name="sports" id="sports" class="sports" value="">
 				</div>
 
 	{{-- jQuery tagsInput plugin script --}}
 	<script>
 
-	$(document).ready(function(){
-		
-		$('#sports').tagsInput();	
-	});
+		$(document).ready(function(){
+			
+			$('#sports').tagsInput();	
+		});
 
 	</script>
 
@@ -51,29 +51,33 @@
 					{{Form::label('city','City') }}
 					{{Form::text('city') }}
 				</div>
-				<div class="form-group col-sm-4 noPaddingLeft noPaddingRight" @if($errors->has('zip')) has-error @endif>
+				<div class="form-group col-sm-6 noPaddingLeft noPaddingRight" @if($errors->has('zip')) has-error @endif>
 					{{Form::label('zip','ZIP Code') }}
-					{{Form::number('zip') }}
+					{{Form::text('zip') }}
 				</div>
-				<div class="form-group col-sm-2 pull-right noPaddingRight" @if($errors->has('gender')) has-error @endif>
+				<div class="form-group col-sm-6 noPaddingLeft noPaddingRight" @if($errors->has('email')) has-error @endif>
+					{{Form::label('email','Email') }}
+					{{Form::text('email') }}
+				</div>
+				<div class="form-group col-sm-6 pull-left noPaddingRight" @if($errors->has('gender')) has-error @endif>
 					{{Form::label('gender','Gender') }}
 					{{Form::text('gender') }}
 				</div>
-				<div class="form-group" @if($errors->has('username')) has-error @endif>
+				<div class="form-group col-sm-6 pull-left" @if($errors->has('username')) has-error @endif>
 					{{Form::label('username','Username') }}
 					{{Form::text('username') }}
 				</div>
-				<div class="form-group" @if($errors->has('password')) has-error @endif>
+				<div class="form-group col-sm-6 pull-left" @if($errors->has('password')) has-error @endif>
 					{{Form::label('password','Password') }}
 					{{Form::text('password') }}
 				</div>
-				<div class="form-group" @if($errors->has('password_confirmation')) has-error @endif>
+				<div class="form-group col-sm-6 pull-left" @if($errors->has('password_confirmation')) has-error @endif>
 					{{Form::label('password_confirmation','Confirm Password') }}
 					{{Form::text('password_confirmation') }}
 				</div>
 
 		<div class="form-group">
-		    {{ Form::submit('Save New Post', 
+		    {{ Form::submit('Save New Profile', 
 		      array('class'=>'btn btn-lg btn-block')) }}
 		</div>
 
