@@ -21,9 +21,9 @@
 	<section id="signUpForm">
 		<h2>Sign Up</h2>
 	{{ Form::open(array('action' => 'UsersController@store', 'files'=>true)) }}
-		
+
 		<div class="form-group col-xs-12 col-sm-6 pull-right">
-			
+
 				<div class="form-group form-control col-sm-6 noPaddingLeft" @if($errors->has('first_name')) has-error @endif>
 					{{Form::label('first_name','First Name') }}
 					{{Form::text('first_name') }}
@@ -41,8 +41,8 @@
 	<script>
 
 	$(document).ready(function(){
-		
-		$('#sports').tagsInput();	
+
+		$('#sports').tagsInput();
 	});
 
 	</script>
@@ -65,15 +65,15 @@
 				</div>
 				<div class="form-group" @if($errors->has('password')) has-error @endif>
 					{{Form::label('password','Password') }}
-					{{Form::text('password') }}
+					{{Form::password('password') }}
 				</div>
 				<div class="form-group" @if($errors->has('password_confirmation')) has-error @endif>
 					{{Form::label('password_confirmation','Confirm Password') }}
-					{{Form::text('password_confirmation') }}
+					{{Form::password('password_confirmation') }}
 				</div>
 
 		<div class="form-group">
-		    {{ Form::submit('Save New Post', 
+		    {{ Form::submit('Save New Post',
 		      array('class'=>'btn btn-lg btn-block')) }}
 		</div>
 

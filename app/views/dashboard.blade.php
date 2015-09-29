@@ -36,14 +36,14 @@
 				</div>
 				<a href="#" class="btn btn-lg btn-block">Edit</a>
 			</form>
-			
+
 			<h2>Update Password</h2>
 			<p>To update your password, we will redirect you to a separate page.</p>
 			<a href="#" class="btn btn-lg btn-block">Edit</a>
 
 			<h2>Events</h2>
 
-			<a href="{{{ action('HomeController@showCreateEvent') }}}" class="btn btn-lg btn-block">Create New Event</a>
+			<a href="{{{ action('GameEventsController@create') }}}" class="btn btn-lg btn-block">Create New Event</a>
 			<ul>
 				<h3>Upcoming Events</h3>
 				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
