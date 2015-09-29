@@ -25,3 +25,8 @@ Route::get('show', 'HomeController@showTheShow');
 #Events Resource
 Route::resource('events', 'GameEventsController');
 
+#Users Resource
+Route::resource('users', 'UsersController');
+
+
+

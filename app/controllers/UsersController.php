@@ -26,6 +26,7 @@ class UsersController extends \BaseController {
 		foreach ($cities as $city) {
 			$dropdown[$city->id] = $city->name;
 		}
+
 		return View::make('users.create')->with('dropdown', dropdown);
 	}
 
@@ -106,7 +107,7 @@ class UsersController extends \BaseController {
 	}
 
 
-	public function validateAndSave($user, $city)
+	public function validateAndSave($user)
 	{
 
 		try {
@@ -123,21 +124,41 @@ class UsersController extends \BaseController {
 			$user->description = Input::get('description');
 			$user->cost 		= Input::get('cost');
 
-			$user->city_id = $city->id;
-			$user->creator_id 	= Auth::id();
+
+			/*tagging favorite sports*/
+			$user->sports_list = Input::get('sports_list');
+			$this->setSportListAttribute(Input::get('sports_list'), $user->id);
 
 			$user->saveOrFail();
 			if (Request::wantsJson()) {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				return Redirect::action('UsersController@show', array($user->id));
+				return Redirect::action('HomeController@showDashboard', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',
 				'Ohh no! Something went wrong. You should be seeing some errors down below.');
 	    	Log::info('Validator failed', Input::all());
 	        return Redirect::back()->withInput()->withErrors($e->getErrors());
+		}
+	}
+
+	public function setSportListAttribute($value, $user_id) 
+	{
+		$user = User::find($user_id);
+		$sportIds = [];
+		$sports = explode (',', $value);
+		foreach ($sports as $sportName) {
+			/* firstOrCreate uses first instance or creates a new instantiation - 
+			stops sports table from duplicating sport names*/
+			$sport = Sport::firstOrCreate(array('sport'=>$sportName));
+			$sportIds[] = $sport->id;
+			/* sync is a Laravel method to attach related models; 
+			sync accepts array of ids to be placed on pivot table
+			only the ids in the array will be on the intermediate table sport_user pivot table*/
+			
+			$user->sports()->sync($sportIds);
 		}
 	}
 }
