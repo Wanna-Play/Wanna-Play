@@ -187,8 +187,12 @@ h4 {
     padding-right: 0px;
 }
 
-.form-control {
+.form-control, .dropdown-toggle {
     border-radius: 0px;
+}
+
+.form-group {
+    margin-bottom: 25px;
 }
 
 .homeHeadLine {
@@ -211,8 +215,6 @@ h4 {
 
 
 /* Search Results */
-
-
 #filterSearchResultsColumn {
     height: 100%;
 }
@@ -251,4 +253,20 @@ h4 {
     max-height: 100%;
     background-color: #efefef;
 }
+
+/* Media queries */
+@media (max-width: 767px) {
+    .noPaddingLeft {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.noPaddingRight {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+}
+
+
 
