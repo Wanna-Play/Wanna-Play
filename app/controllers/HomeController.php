@@ -32,7 +32,7 @@ class HomeController extends BaseController {
 
 	public function showCreateEvent()
 	{
-		return View::make('create');
+		return View::make('events.create');
 	}
 
 	public function showSearchResults()
