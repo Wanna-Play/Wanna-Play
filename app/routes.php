@@ -18,12 +18,15 @@ Route::get('login', 'HomeController@showLogin');
 
 Route::get('dashboard', 'HomeController@showDashboard');
 
-Route::get('create', 'HomeController@showCreateEvent');
-
 Route::get('results', 'HomeController@showSearchResults');
 
 Route::get('show', 'HomeController@showTheShow');
 
+#Events Resource
+Route::resource('events', 'GameEventsController');
+
+#Users Resource
 Route::resource('users', 'UsersController');
+
 
 
