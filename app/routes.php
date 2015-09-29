@@ -23,6 +23,5 @@ Route::get('results', 'HomeController@showSearchResults');
 Route::get('show', 'HomeController@showTheShow');
 
 #Events Resource
-Route::model('events', 'CalendarEvent');
-Route::resource('events', 'CalendarEventsController');
+Route::resource('events', 'GameEventsController');
 

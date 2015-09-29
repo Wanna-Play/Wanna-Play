@@ -7,10 +7,6 @@
 	<link rel="stylesheet" href="/bower/bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/bower/bower_components/bootstrap/dist/css/bootstrap-theme.css">
 
-
-	{{-- Bootstrap jQuery --}}
-	<link rel="stylesheet" href="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js">
-
 	{{-- Sportsfont CSS --}}
 	<link rel="stylesheet" href="/bower/bower_components/sportsfont/css/sports.css">
 
@@ -19,6 +15,9 @@
 
 	{{-- Font Awesome icons --}}
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	{{-- Date Time Picker CSS --}}
+	<link rel="stylesheet" href="/bower/bower_components/datetimepicker/jquery.datetimepicker.css">
 
 	<title>Wanna Play</title>
 </head>
@@ -44,7 +43,7 @@
 
 			<div class="col-sm-4">
 				<h4>The Team</h4>
-				<p>Meet our dev team: Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
+				<p>Meet our dev team: Julie Buser, Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
 			</div>
 
 			<div class="col-sm-4">
@@ -55,8 +54,14 @@
 	</footer>
 
 
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+{{-- jQuery --}}
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+{{-- Bootstrap JS --}}
+<script src="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js">
+
 
 @yield('script')
 </body>
