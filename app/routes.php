@@ -24,3 +24,6 @@ Route::get('results', 'HomeController@showSearchResults');
 
 Route::get('show', 'HomeController@showTheShow');
 
+Route::resource('users', 'UsersController');
+
+
