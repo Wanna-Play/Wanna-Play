@@ -64,9 +64,9 @@ Edit User Profile
 				{{Form::text('city') }}         
 	    	</div>
 
-	    	<div class="form-group" @if($errors->has('zipCode')) has-error @endif">
-				{{Form::label('zipCode', 'Zip Code') }}
-				{{Form::text('zipCode') }}         
+	    	<div class="form-group" @if($errors->has('zip')) has-error @endif">
+				{{Form::label('zip', 'Zip Code') }}
+				{{Form::text('zip') }}         
 	    	</div>
 			
 			<div class="form-group " @if($errors->has('gender')) has-error @endif>

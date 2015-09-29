@@ -152,11 +152,12 @@ class UsersController extends \BaseController {
 		foreach ($sports as $sportName) {
 			/* firstOrCreate uses first instance or creates a new instantiation - 
 			stops sports table from duplicating sport names*/
-			$sport = Sport::firstOrCreate(array('name'=>$sportName));
+			$sport = Sport::firstOrCreate(array('sport'=>$sportName));
 			$sportIds[] = $sport->id;
 			/* sync is a Laravel method to attach related models; 
 			sync accepts array of ids to be placed on pivot table
 			only the ids in the array will be on the intermediate table sport_user pivot table*/
+			
 			$user->sports()->sync($sportIds);
 		}
 	}
