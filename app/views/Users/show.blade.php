@@ -65,6 +65,7 @@
 		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
 			<h2>Your Events</h2>
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 noFloatButton">
+
 				<a href="{{ action('GameEventsController@create')}}" class="btn btn-lg btn-block">Create A New Event</a>
 			</div>
 
