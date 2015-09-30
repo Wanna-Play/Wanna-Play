@@ -82,7 +82,6 @@
 			      array('class'=>'btn btn-lg btn-block')) }}
 			</div>
 
->>>>>>> master
 		</div>
 
 	{{ Form::close() }}

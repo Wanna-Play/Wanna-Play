@@ -162,4 +162,43 @@ class UsersController extends \BaseController {
 			$user->sports()->sync($sportIds);
 		}
 	}
+
+	public function login()
+	{
+		return View::make('login');
+	}
+
+	public function logout()
+	{
+		return View::make('logout');
+	}
+
+	public function doLogin()
+	{
+		$email_or_username = Input::get('email_or_username');
+		$password = Input::get('password');
+
+		if (Auth::attempt(array('email' => $email_or_username, 'password' => $password), true) ||
+			Auth::attempt(array('username' => $email_or_username, 'password' => $password), true)) {
+			Log::info('Login Successful - ', array('User = ' => Input::get('email_or_username')));
+		    return Redirect::intended();
+
+		} else {
+
+			// Log::error('Login Error on : ', Input::get('email'));
+			Session::flash('errorMessage', 'Problem with email and/or password. Please resubmit');
+
+		    return Redirect::action('UsersController@login');
+		}
+	}
+
+	public function doLogout()
+	{
+		Auth::logout();
+
+		Session::flash('successMessage', 'Logout successfully completed');
+
+		return Redirect::to('/');
+
+	}
 }

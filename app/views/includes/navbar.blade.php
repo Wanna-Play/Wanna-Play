@@ -17,20 +17,20 @@
 				<li><a class="linkNav" href="#">My Account</a></li>
 				<li><a class="linkNav" href="#">Create</a></li>
 				<li><a class="linkNav" href="#">Edit</a></li>
-			</ul>	
+			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="#">Events</a></li>
-				<li class="logIn"><a class="linkNav" href="{{{ action('HomeController@showLogin') }}}">Logout</a></li>
+				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@login') }}}">Logout</a></li>
 			</ul>
 			@else
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="#">Events</a></li>
-				<li class="logIn"><a class="linkNav" href="{{{ action('HomeController@showLogin') }}}">Sign Up / Log In</a></li>
+				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@login') }}}">Sign Up / Log In</a></li>
 			</ul>
-			@endif	
+			@endif
 		</div><!--/.nav-collapse -->
 	</div><!--/.container-fluid -->
 </nav>
