@@ -26,6 +26,7 @@
 
 	<section id="signUpForm">
 		<div class="form-group col-xs-12 col-sm-6 pull-right">
+
 		{{ Form::open(array('action' => 'UsersController@store', 'files'=>true)) }}
 			<h2>Sign Up</h2>
 
