@@ -1,4 +1,4 @@
-    <div class="col-xs-12 col-sm-9 pull-left">
+
         {{ Form::token() }}
 
         <div class="form-group">
@@ -101,5 +101,4 @@
             {{ Form::file('event_image', ['class' => 'form-control']) }}
         </div>
 
-    </div>
 
