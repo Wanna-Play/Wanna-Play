@@ -102,9 +102,11 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		User::destroy($id);
-
-		return Redirect::route('users.index');
+		$id = Auth::id();
+		User::find($id)->delete();
+		Log::info('User Deleted with attached information: ', Input::all());
+		Session::flash('successMessage', 'User successfully deleted.');
+		return Redirect::action('UsersController@login');
 	}
 
 	public function validateAndSave($user)
@@ -160,15 +162,17 @@ class UsersController extends \BaseController {
 	{
 		$email_or_username = Input::get('email_or_username');
 		$password = Input::get('password');
+		// dd($email_or_username, $password);
 
 		if (Auth::attempt(array('email' => $email_or_username, 'password' => $password), true) ||
-			Auth::attempt(array('username' => $email_or_username, 'password' => $password), true)) {
+			Auth::attempt(array('username' => $email_or_username, 'password' => $password), true))
+		{
 			Log::info('Login Successful - ', array('User = ' => Input::get('email_or_username')));
-		    return Redirect::intended();
+		    return Redirect::intended('/', 'HomeController@showWelcome');
 
 		} else {
 
-			// Log::error('Login Error on : ', Input::get('email'));
+			Log::error('Login Error on : ', Input::get('email'));
 			Session::flash('errorMessage', 'Problem with email and/or password. Please resubmit');
 
 		    return Redirect::action('UsersController@login');

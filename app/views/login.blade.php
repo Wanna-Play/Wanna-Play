@@ -7,13 +7,13 @@
 			{{ Form::open(array('action' => 'UsersController@doLogin', 'files'=>true)) }}
 			<h2>Log In</h2>
 			<div class="form-group" @if($errors->has('loginUserName')) has-error @endif>
-				{{ Form::label('loginUserName','Username / Email') }}
-				{{ Form::text('loginUserName', null, ['class' => 'form-control']) }}
+				{{ Form::label('email_or_username','Username / Email') }}
+				{{ Form::text('email_or_username', null, ['class' => 'form-control']) }}
 			</div>
 
 			<div class="form-group" @if($errors->has('loginPassword')) has-error @endif>
-				{{ Form::label('loginPassword','Password') }}
-				{{ Form::password('loginPassword', ['class' => 'form-control']) }}
+				{{ Form::label('password','Password') }}
+				{{ Form::password('password', ['class' => 'form-control']) }}
 			</div>
 
 			<div class="form-group col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3">
