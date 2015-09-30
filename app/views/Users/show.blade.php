@@ -14,10 +14,12 @@
 		    	<p>{{ $user->first_name }} {{ $user->last_name }}</p>
 		    </div>
 
-		    <div class="form-group" @if($errors->has('sports')) has-error @endif>
-		    	<label>Favorite Sports</label>
-		    	<p></p>
-		    </div>
+    	<h3><strong>Favorite Sports: </strong>
+		<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
+			@foreach($user->sports as $sport)
+				{{{ $sport->sport }}}
+			@endforeach
+		</h3>
 
 	    	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
 		    	<label>City</label>
