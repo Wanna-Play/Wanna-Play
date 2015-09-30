@@ -1,4 +1,4 @@
-    <div class="col-xs-12 col-sm-9 pull-left">
+
         {{ Form::token() }}
 
         <div class="form-group">
@@ -8,7 +8,7 @@
             </div>
         </div>
 
-        
+
         <div class="form-group @if($errors->has('event_name')) has-error @endif">
             {{ Form::label('event_name', 'Event Name') }}
             {{ Form::text('event_name', null, ['class' => 'form-control']) }}
@@ -25,8 +25,8 @@
                 {{ Form::text('end_time', null, ['class' => 'form-control', 'id' => 'endsAtDateTimePicker', 'placeholder' => 'Enter Ending Time']) }}
             </div>
         </div>
-        
-        
+
+
         <div id="location_dropdown">
             <div class="form-group">
                 {{ Form::label('select_city', 'Select City') }}<br>
@@ -43,7 +43,7 @@
             </div>
 
             <div id="where_section">
-            	
+
             		<div class="form-group" id="location-name">
                         {{ Form::label('location_name', 'Venue Name') }}
             			{{ Form::text('location_name', null, ['class' => 'form-control', 'placeholder' => 'Venue Name']) }}
@@ -53,7 +53,7 @@
                         {{ Form::label('location_street', 'Street Address') }}
             			{{ Form::text('location_street', null, ['class' => 'form-control', 'placeholder' => 'Street Address']) }}
             		</div>
-            	
+
             	<div class="row">
             		<div class="form-group col-sm-8" id="location-city">
                         {{ Form::label('location_city', 'City') }}
@@ -85,11 +85,11 @@
             <div class="form-group col-sm-3">
                 {{ Form::label('select_gender', 'Gender') }}
                 <div class="dropdown form-group" id="location">
-                    {{ Form::select('select_gender', ['' => 'Choose Gender', 'M' => 'Male', 'F' => 'Female'], null, ['class' => 'form-control dropdown-toggle btn btn-default' ]) }}
+                    {{ Form::select('select_gender', ['' => 'Choose Gender', 'M' => 'Male', 'F' => 'Female', 'Co-Ed' => 'Co-Ed'], null, ['class' => 'form-control dropdown-toggle btn btn-default' ]) }}
                 </div>
             </div>
         </div>
-    
+
 
         <div class="form-group @if($errors->has('description')) has-error @endif">
             {{ Form::label('enter_description', 'Description') }}
@@ -100,6 +100,3 @@
             {{ Form::label('event_image', 'Upload an Image') }}
             {{ Form::file('event_image', ['class' => 'form-control']) }}
         </div>
-
-    </div>
-
