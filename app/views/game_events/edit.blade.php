@@ -9,7 +9,7 @@
         @endforeach
 
         <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
-        	<h2>Create an Event</h2>
+        	<h2>Edit an Event</h2>
         	{{ Form::open(array('action' => 'GameEventsController@store', 'files' => true)) }}
 
        		@include('game_events.create-edit-form')
