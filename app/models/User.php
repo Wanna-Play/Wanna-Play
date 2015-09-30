@@ -58,22 +58,22 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
         $name = $file->getClientOriginalName();
         $path = 'images/user-imgs/';
         $file->move(public_path() . $path, $name);
-        $this->event_image = $path . $name;
+        $this->profile_picture = $path . $name;
     }
 
-    public function setSportsListAttribute($value) 
+    public function setSportsListAttribute($value)
 	{
 		$sportIds = [];
 		$sports = explode (',', $value);
 		foreach ($sports as $sportName) {
-			/* firstOrCreate uses first instance or creates a new instantiation - 
+			/* firstOrCreate uses first instance or creates a new instantiation -
 			stops sports table from duplicating sport names*/
 			$sport = Sport::firstOrCreate(array('sport'=>$sportName));
 			$sportIds[] = $sport->id;
-			/* sync is a Laravel method to attach related models; 
+			/* sync is a Laravel method to attach related models;
 			sync accepts array of ids to be placed on pivot table
 			only the ids in the array will be on the intermediate table sport_user pivot table*/
-			
+
 		}
 
 		$this->sports()->sync($sportIds);
