@@ -58,7 +58,7 @@
 			<div class="form-group col-xs-12 col-sm-3 pull-right noPaddingRight" @if($errors->has('gender')) has-error @endif>
 				{{ Form::label('gender','Gender') }}
 				<div class="dropdown form-group" id="location">
-                    {{ Form::select('gender', ['' => '', 'M' => 'Male', 'F' => 'Female'], null, ['class' => 'form-control dropdown-toggle btn btn-default' ]) }}
+                    {{ Form::select('gender', ['' => null, 'M' => 'Male', 'F' => 'Female'], null, ['class' => 'form-control dropdown-toggle btn btn-default' ]) }}
                 </div>
 			</div>
 			<div class="form-group" @if($errors->has('email')) has-error @endif>
