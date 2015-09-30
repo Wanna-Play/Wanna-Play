@@ -107,7 +107,6 @@ class UsersController extends \BaseController {
 		return Redirect::route('users.index');
 	}
 
-
 	public function validateAndSave($user)
 	{
 
@@ -115,27 +114,29 @@ class UsersController extends \BaseController {
 
 			$uploads_directory = 'images/uploads/';
 
-			if(Input::hasFile('user_image')) {
-				$filename = Input::file('user_image')->getClientOriginalName();
-				$user->user_image = Input::file('user_image')->move($uploads_directory, $filename);
+			if(Input::hasFile('profile_picture')) {
+				$filename = Input::file('profile_picture')->getClientOriginalName();
+				$user->profile_picture = Input::file('profile_picture')->move($uploads_directory, $filename);
 			}
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
 	    	$user->city  = Input::get('city');
-	    	$user->end_time    = Input::get('end_time');
-			$user->user_name 	= Input::get('user_name');
-			$user->description = Input::get('description');
-			$user->cost 		= Input::get('cost');
-
-
-			/*tagging favorite sports*/
-			$user->sports_list = Input::get('sports_list');
-			$this->setSportListAttribute(Input::get('sports_list'), $user->id);
+	    	$user->zip = Input::get('zip');
+	    	$user->email    = Input::get('email');
+			$user->gender = Input::get('gender');
+			$user->username = Input::get('user_name');
+			$user->password = Input::get('password');
+			$user->password_confirmation = Input::get('password_confirmation');
 
 			$user->saveOrFail();
+
+			/* Laravel automatically calls set SportsListAttriute - tagging favorite sports*/
+			$user->sports_list = Input::get('sports');
 			if (Request::wantsJson()) {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				return Redirect::action('HomeController@showDashboard', array($user->id));
+				/*return Redirect::action('HomeController@showDashboard', array($user->id));*/
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',

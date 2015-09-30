@@ -14,6 +14,6 @@ class Location extends SoftModel {
 
 	public function events()
 	{
-		$this->hasMany('Event');
+		return $this->hasMany('GameEvent');
 	}
 }
