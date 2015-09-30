@@ -56,7 +56,7 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 	public function uploadImage($file)
     {
         $name = $file->getClientOriginalName();
-        $path = 'images/event-imgs/';
+        $path = 'images/user-imgs/';
         $file->move(public_path() . $path, $name);
         $this->event_image = $path . $name;
     }

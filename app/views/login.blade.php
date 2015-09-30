@@ -19,12 +19,13 @@
 			<div class="form-group col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3">
 			    {{ Form::submit('Log In', ['class'=>'btn btn-lg btn-block']) }}
 			</div>
-			
+
 			{{ Form::close() }}
 		</div>
 	</section>
 
 	<section id="signUpForm">
+
 		<div class="form-group col-xs-12 col-sm-6 pull-right">
 
 		{{ Form::open(array('action' => 'UsersController@store', 'files'=>true)) }}
@@ -78,7 +79,7 @@
 			</div>
 
 			<div class="form-group col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3">
-			    {{ Form::submit('Save New Post', 
+			    {{ Form::submit('Save New Post',
 			      array('class'=>'btn btn-lg btn-block')) }}
 			</div>
 
@@ -98,8 +99,8 @@
 <script>
 
 $(document).ready(function(){
-	
-	$('#sports').tagsInput();	
+
+	$('#sports').tagsInput();
 });
 
 </script>

@@ -14,7 +14,11 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('login', 'HomeController@showLogin');
+Route::get('/login', 'UsersController@login');
+
+Route::post('/login', 'UsersController@doLogin');
+
+Route::get('/logout', 'UsersController@doLogout');
 
 Route::get('dashboard', 'HomeController@showDashboard');
 
@@ -27,6 +31,3 @@ Route::resource('events', 'GameEventsController');
 
 #Users Resource
 Route::resource('users', 'UsersController');
-
-
-

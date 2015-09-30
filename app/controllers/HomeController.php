@@ -30,11 +30,6 @@ class HomeController extends BaseController {
 		return View::make('dashboard');
 	}
 
-	public function showCreateEvent()
-	{
-		return View::make('events.create');
-	}
-
 	public function showSearchResults()
 	{
 		return View::make('results');

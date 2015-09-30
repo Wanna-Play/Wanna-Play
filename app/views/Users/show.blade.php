@@ -36,7 +36,7 @@
 				</div>
 				<a href="#" class="btn btn-lg btn-block">Edit</a>
 			</form>
-			
+
 			<h2>Update Password</h2>
 			<p>To update your password, we will redirect you to a separate page.</p>
 			<a href="#" class="btn btn-lg btn-block">Edit</a>
