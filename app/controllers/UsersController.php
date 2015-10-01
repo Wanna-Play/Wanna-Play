@@ -23,7 +23,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::pagintate(15);
+		$users = User::paginate(15);
 
 		return View::make('users.index', compact('users'));
 	}
@@ -85,6 +85,16 @@ class UsersController extends \BaseController {
 
 		return View::make('users.edit', compact('user'));
 	}
+/*	public function edit($id)
+	{
+		if(Auth::id() == $id){
+			$user = Auth::user();
+			return View::make('users.edit')->with('user',$user);
+		}else{
+
+			return Redirect::action('UsersController@show()');
+		}
+	}*/
 
 	/**
 	 * Update the specified user in storage.
@@ -92,22 +102,34 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function update($id)
 	{
-		$user = User::findOrFail($id);
+		/* Perform auth ID check before allowing user to update */
+			$user = User::find(Auth::user()->id);
+			$user->profile_picture = Input::get('profile_picture');
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+	    	$user->city  = Input::get('city');
+	    	$user->zip = Input::get('zip');
+	    	$user->email    = Input::get('email');
+			$user->gender = Input::get('gender');
+			$user->username = Input::get('username');
+			$user->sports_list = Input::get('sports_list');
 
-		$validator = Validator::make($data = Input::all(), User::$rules);
+			$user->save();
+		// set flash data to show successful logon - retrieve flash data (same as any other session variable)
+			Session::flash('successMessage', 'Updated successfully.');
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$user->update($data);
-
-		return Redirect::route('users.show');
+			if (!$user->save()) {
+			     $errors = $user->getErrors();
+			     /*This page shows a specific user profile by user's id #;*/
+			     return View::make('users.show')->with('user', $user);
+			     
+			} else {
+				return Redirect::action('UsersController@edit')->with('user', $user);
+			}
 	}
-
 	/**
 	 * Remove the specified user from storage.
 	 *
@@ -152,6 +174,7 @@ class UsersController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
+
 				return Redirect::action('UsersController@show', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {

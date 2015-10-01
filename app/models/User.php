@@ -79,4 +79,15 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 		$this->sports()->sync($sportIds);
 	}
 
+	public function getSportsListAttribute()
+	{
+		$sportNames = [];
+
+		foreach ($this->sports as $sport) {
+			$sportNames[] = $sport->sport;
+		}
+
+		return implode(',', $sportNames);
+	}
+
 }
