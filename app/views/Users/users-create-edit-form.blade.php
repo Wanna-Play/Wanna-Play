@@ -11,8 +11,8 @@
 	</div>
 
 	<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
-		{{ Form::label('sports','Favorite Sports') }}
-		{{ Form::textarea('enter_description', null, ['class' => 'form-control', 'id' => 'sports', 'name' =>'sports' ]) }}
+		{{ Form::label('sports_list','Favorite Sports') }}
+		{{ Form::textarea('sports_list', null, ['class' => 'form-control']) }}
 	</div>
 
 	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
