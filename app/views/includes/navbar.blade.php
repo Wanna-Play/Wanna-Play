@@ -13,7 +13,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			@if ( Auth::check() )
 			<ul class="nav navbar-nav">
-				<li><a class="active linkNav">Hi, Bob!</a></li>
+				<li><a class="active linkNav">Hi, {{ Auth::user()->username }}</a></li>
 				<li><a class="linkNav" href="#">My Account</a></li>
 				<li><a class="linkNav" href="#">Create</a></li>
 				<li><a class="linkNav" href="#">Edit</a></li>

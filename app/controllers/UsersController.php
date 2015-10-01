@@ -68,6 +68,9 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
+		if(!Auth::check()){
+			return Redirect::action('UsersController@login');
+		}
 		$user = User::findOrFail($id);
 
 		return View::make('users.show', compact('user'));
@@ -81,9 +84,17 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
+		if(!Auth::check()){
+			return Redirect::action('UsersController@login');
+		}
+		$user = User::findOrFail($id);
 
-		return View::make('users.edit', compact('user'));
+		if ((Auth::user()->role == 'admin') || (Auth::id() == $user->id)) {
+			return View::make('users.edit', compact('user'));
+		}else{
+			Session::flash('errorMessage', 'Account not authorized for this action.');
+			return Redirect::action();
+		}
 	}
 
 	/**
@@ -143,7 +154,7 @@ class UsersController extends \BaseController {
 			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->password_confirmation = Input::get('password_confirmation');
-			
+
 			$user->saveOrFail();
 
 			/* Laravel automatically calls set SportsListAttriute - tagging favorite sports*/
@@ -202,6 +213,53 @@ class UsersController extends \BaseController {
 		Session::flash('successMessage', 'Logout successfully completed');
 
 		return Redirect::to('/');
+
+	}
+
+	public function updatePassword ()
+	{
+		$id = Auth::id();
+		$user = User::find($id);
+		return View::make('user.update-password')->with('user', $user);
+	}
+
+	public function saveNewPassword () {
+
+		$id = Auth::id();
+
+		$user = User::find($id);
+
+		if(Auth::attempt(array('id' => $id, 'password' => Input::get('old_password')))) {
+
+			$user->password =  Input::get('password');
+
+			$user->password_confirmation =  Input::get('password_confirmation');
+
+			$user->save();
+
+		return Redirect::action('UsersController@show');
+
+		} else {
+			$message = "Password Error";
+
+			Log::error($message);
+
+			Session::flash('errorMessage', 'Old Password Incorrect.  Please resubmit');
+
+			return Redirect::action('UsersController@updatePassword');
+
+		}
+
+	    if(!$user) {
+
+	    	$message = "User not found.";
+
+	    	Log::warning($message);
+
+			Session::flash('errorMessage', "User not found");
+
+			App::abort(404);
+		}
 
 	}
 }

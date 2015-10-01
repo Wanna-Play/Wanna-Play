@@ -12,7 +12,7 @@ class EventsSeeder extends Seeder {
 
 
 		$event = new GameEvent();
-
+		$event->start_time='2015-10-01 2:00 pm';
 		$event->event_name='Soccer Game';
 		$event->location_id=$location->id;
 		$event->gender='Co-Ed';
