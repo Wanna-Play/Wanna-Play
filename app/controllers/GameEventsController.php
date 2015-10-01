@@ -48,9 +48,9 @@ class GameEventsController extends \BaseController {
 		$cityDropdown = [];
 		$cityDropdown[-1] = 'View Cities';
 		$sportDropdown = [];
-		$sportDropdown[-1] = 'View Sports';
-		$dropdown     = [];
-		$dropdown[-1] = 'Add New Venue';
+		$sportDropdown[-1] = 'Select This Event\'s Sport';
+		$locationDropdown = [];
+		$locationDropdown[-1] = 'Add New Venue';
 		foreach ($sports as $sport) {
 			$sportDropdown[$sport->id] = $sport->sport;
 		}
@@ -58,9 +58,9 @@ class GameEventsController extends \BaseController {
 			$cityDropdown[$city->id] = $city->city;
 		}
 		foreach ($locations as $location) {
-			$dropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
+			$locationDropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
 		}
-		return View::make('game_events.create')->with('cityDropdown', $cityDropdown)->with('sportDropdown', $sportDropdown)->with('dropdown', $dropdown);
+		return View::make('game_events.create')->with('cityDropdown', $cityDropdown)->with('sportDropdown', $sportDropdown)->with('locationDropdown', $locationDropdown);
 	}
 	/**
 	 * Store a newly created gameevent in storage.
