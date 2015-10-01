@@ -105,12 +105,9 @@ class UsersController extends \BaseController {
 
 	public function update($id)
 	{
-		//verify password is correct first
-		/*if (Hash::check(Input::get('password'), Auth::user()->password))
-		{*/
-			/*$user = User::find(Auth::user()->id);*/
-			$user=User::find($id);
-			/*$user->profile_picture = Input::get('profile_picture');*/
+		/* Perform auth ID check before allowing user to update */
+			$user = User::find(Auth::user()->id);
+			$user->profile_picture = Input::get('profile_picture');
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');
 	    	$user->city  = Input::get('city');
@@ -118,41 +115,21 @@ class UsersController extends \BaseController {
 	    	$user->email    = Input::get('email');
 			$user->gender = Input::get('gender');
 			$user->username = Input::get('username');
-			$user->sport = Input::get('sport');
+			$user->sports_list = Input::get('sports_list');
+
 			$user->save();
-		// set flash data - retrieve flash data (same as any other session variable)
-		$this->setSportListAttribute(Input::get('sport_list'), $user->id);
+		// set flash data to show successful logon - retrieve flash data (same as any other session variable)
 			Session::flash('successMessage', 'Updated successfully.');
+
 			if (!$user->save()) {
 			     $errors = $user->getErrors();
-			     return Redirect::action('UsersController@show', array($id)/*, Auth::id())->with('errors', $errors)->withInput(*/);
+			     /*This page shows a specific user profile by user's id #;*/
+			     return View::make('users.show')->with('user', $user);
+			     
+			} else {
+				return Redirect::action('UsersController@edit')->with('user', $user);
 			}
-		    // success!
-			$email = Input::get('email');
-			$password = Input::get('password');
-			Auth::attempt(array('email' => $email, 'password' => $password));
-		    return Redirect::action('UsersController@show', array($id)/*, Auth::id())->with('message', 'Event was succesfully edited'*/);
-		/*}else{*/
-			// current password didn't match database
-			return Redirect::action('UsersController@edit'/*, Auth::id())->with('errorMessage', 'Current password was incorrect.'*/);
-		/*}*/
 	}
-	/*public function update($id)
-	{
-		$user = User::findOrFail($id);
-
-		$validator = Validator::make($data = Input::all(), User::$rules);
-
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
-
-		$user->update($data);
-
-		return Redirect::route('users.show');
-	}
-*/
 	/**
 	 * Remove the specified user from storage.
 	 *
