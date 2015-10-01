@@ -46,7 +46,7 @@
 
 			<div class="col-sm-4">
 				<h4>The Team</h4>
-				<p>Meet our dev team: Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
+				<p>Meet our dev team: Julie Buser, Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
 			</div>
 
 			<div class="col-sm-4">
