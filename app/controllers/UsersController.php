@@ -73,6 +73,14 @@ class UsersController extends \BaseController {
 		return View::make('users.show', compact('user'));
 	}
 
+	public function dash()
+	{
+		$id = Auth::id();
+		$user = User::findOrFail($id);
+
+		return View::make('users.dash', compact('user'));
+	}
+
 	/**
 	 * Show the form for editing the specified user.
 	 *
@@ -125,7 +133,7 @@ class UsersController extends \BaseController {
 			     $errors = $user->getErrors();
 			     /*This page shows a specific user profile by user's id #;*/
 			     return View::make('users.show')->with('user', $user);
-			     
+
 			} else {
 				return Redirect::action('UsersController@edit')->with('user', $user);
 			}
@@ -165,7 +173,7 @@ class UsersController extends \BaseController {
 			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->password_confirmation = Input::get('password_confirmation');
-			
+
 			$user->saveOrFail();
 
 			/* Laravel automatically calls set SportsListAttriute - tagging favorite sports*/
