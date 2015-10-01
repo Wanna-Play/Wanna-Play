@@ -40,5 +40,10 @@ class HomeController extends BaseController {
 		return View::make('show');
 	}
 
+	public function showSports()
+	{
+		return View::make('sports');
+	}
+
 
 }

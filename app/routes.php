@@ -26,8 +26,12 @@ Route::get('results', 'HomeController@showSearchResults');
 
 Route::get('show', 'HomeController@showTheShow');
 
+Route::get('sports', 'HomeController@showSports');
+
 #Events Resource
 Route::resource('events', 'GameEventsController');
 
 #Users Resource
 Route::resource('users', 'UsersController');
+
+Route::resource('events', 'GameEventsController');

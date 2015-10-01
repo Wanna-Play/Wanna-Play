@@ -5,7 +5,7 @@
 	<div class="container col-sm-12">
 		<div class="row" id="homeSelectionForm">
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3">
-				<h1 class="homeHeadLine whiteHeader">YOU GOT GAME?</h1>
+				<h1 class="homeHeadLine whiteHeader">yOU GOT GaME?</h1>
 				<form>
 					<div class="form-group">
 						<label for="selectSport" class="homeHeadLine"><h2>What do you like to play?</h2></label>
