@@ -2,6 +2,20 @@
 
 class UsersController extends \BaseController {
 
+	public function __construct ()
+	{
+		parent::__construct();
+
+		$this->beforeFilter('auth', array('except' => array('login', 'doLogin', 'create', 'store')));
+
+		// Filter for isAdmin
+		$this->beforeFilter('isAdmin', array('only' => array('index')));
+
+		// Filter for isOwnerAdmin
+		$this->beforeFilter('isOwnerAdmin', array('only' => array('edit', 'update', 'destroy', 'updatePassword', 'saveNewPassword')));
+
+	}
+
 	/**
 	 * Display a listing of users
 	 *
@@ -168,11 +182,13 @@ class UsersController extends \BaseController {
 			Auth::attempt(array('username' => $email_or_username, 'password' => $password), true))
 		{
 			Log::info('Login Successful - ', array('User = ' => Input::get('email_or_username')));
-		    return Redirect::intended('/', 'HomeController@showWelcome');
+			// return 'test';
+		    return Redirect::intended('/');
 
 		} else {
 
-			Log::error('Login Error on : ', Input::get('email'));
+			// return 'test2';
+			Log::error('Login Error on : ' . Input::get('email'));
 			Session::flash('errorMessage', 'Problem with email and/or password. Please resubmit');
 
 		    return Redirect::action('UsersController@login');
