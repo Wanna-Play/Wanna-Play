@@ -2,13 +2,13 @@
 
 class GameEventsController extends \BaseController {
 	/**
-	 * Display a listing of calendarevents
+	 * Display a listing of gameevents
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$query = CalendarEvent::with('user');
+		$query = GameEvent::with('user');
 		$search = Input::get('search');
 		if (!empty($search)) {
 			$query->where('event_name', 'like', $search . '%');
@@ -16,24 +16,24 @@ class GameEventsController extends \BaseController {
 			$query->orWhere('event_name', 'like', '%' . $search);
 		}
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
-		return View::make('calendarevents.index')->with(array('events' => $events));
+		return View::make('game_events.index')->with(array('events' => $events));
 	}
 	public function getManage()
 	{
 		if(!Auth::check()){
-			return Redirect::action('CalendarEventsController@index');
+			return Redirect::action('GameEventsController@index');
 		}elseif(Auth::user()->role == 'admin'){
-			$events = CalendarEvent::paginate(10);
-			return View::make('calendarevents.manage')->with(array('events' => $events));
+			$events = GameEvent::paginate(10);
+			return View::make('game_events.manage')->with(array('events' => $events));
 		}else{
-			$query = CalendarEvent::with('user');
+			$query = GameEvent::with('user');
 			$query->where('creator_id', Auth::user()->id);
 			$events = $query->orderBy('created_at', 'DESC');
-			return View::make('calendarevents.manage')->with(array('events'=> $events));
+			return View::make('game_events.manage')->with(array('events'=> $events));
 		}
 	}
 	/**
-	 * Show the form for creating a new calendarevent
+	 * Show the form for creating a new gameevent
 	 *
 	 * @return Response
 	 */
@@ -63,38 +63,38 @@ class GameEventsController extends \BaseController {
 		return View::make('game_events.create')->with('cityDropdown', $cityDropdown)->with('sportDropdown', $sportDropdown)->with('dropdown', $dropdown);
 	}
 	/**
-	 * Store a newly created calendarevent in storage.
+	 * Store a newly created gameevent in storage.
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$event = new CalendarEvent();
+		$event = new GameEvent();
 		$location = new Location();
 		Log::info("Event created successfully");
 		Log::info("Log Message", array('context' => Input::all()));
 		return $this->validateAndSave($event, $location);
 	}
 	/**
-	 * Display the specified calendarevent.
+	 * Display the specified gameevent.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-		$event = Calendarevent::findOrFail($id);
-		return View::make('calendarevents.show', compact('event'));
+		$event = GameEvent::findOrFail($id);
+		return View::make('game_events.show', compact('event'));
 	}
 	/**
-	 * Show the form for editing the specified calendarevent.
+	 * Show the form for editing the specified gameevent.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		$event = Calendarevent::find($id);
+		$event = GameEvent::find($id);
 		if (!$event) {
 			App::abort(404);
 		}
@@ -111,7 +111,7 @@ class GameEventsController extends \BaseController {
 				return View::make('game_events.edit', compact('event', 'dropdown'));
 			} else {
 				Session::flash('errorMessage', 'Access not authorized');
-				return Redirect::action('CalendarEventsController@index');
+				return Redirect::action('GameEventsController@index');
 			}
 	}
 	/**
@@ -122,7 +122,7 @@ class GameEventsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$event = CalendarEvent::findOrFail($id);
+		$event = GameEvent::findOrFail($id);
 		$location = Location::findOrFail($event->location_id);
 		if(!$event){
 			App::abort(404);
@@ -130,20 +130,20 @@ class GameEventsController extends \BaseController {
 		return $this->validateAndSave($event, $location);
 	}
 	/**
-	 * Remove the specified calendarevent from storage.
+	 * Remove the specified gameevent from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function destroy($id)
 	{
-		$event = CalendarEvent::findOrFail($id);
+		$event = GameEvent::findOrFail($id);
 		$event->delete();
         if (Request::wantsJson()) {
             return Response::json(array('Status' => 'Request Succeeded'));
         } else {
 			Session::flash('successMessage', 'This event has been successfully deleted.');
-            return Redirect::action('CalendarEventsController@index');
+            return Redirect::action('GameEventsController@index');
         }
 	}
 	public function validateAndSave($event, $location)
@@ -160,6 +160,8 @@ class GameEventsController extends \BaseController {
 		    	$location->city    = Input::get('city');
 		    	$location->state   = Input::get('state');
 		    	$location->zip 	= Input::get('zip');
+		    	$location->phone = Input::get('phone');
+		    	$location->url = Input::get('url');
 		    	$location->saveOrFail();
 		    } else {
 		    	$location = Location::findOrFail(Input::get('location'));
@@ -168,7 +170,7 @@ class GameEventsController extends \BaseController {
 	    	$event->end_time    = Input::get('end_time');
 			$event->event_name 	= Input::get('event_name');
 			$event->description = Input::get('description');
-			$event->cost 		= Input::get('cost');
+			$event->amount 		= Input::get('amount');
 			$event->location_id = $location->id;
 			$event->creator_id 	= Auth::id();
 			$event->saveOrFail();
@@ -176,7 +178,7 @@ class GameEventsController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your event has been successfully saved.');
-				return Redirect::action('CalendarEventsController@show', array($event->id));
+				return Redirect::action('GameEventsController@show', array($event->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',

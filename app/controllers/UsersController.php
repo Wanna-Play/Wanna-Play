@@ -91,7 +91,7 @@ class UsersController extends \BaseController {
 
 		$user->update($data);
 
-		return Redirect::route('users.index');
+		return Redirect::route('users.show');
 	}
 
 	/**
@@ -126,10 +126,10 @@ class UsersController extends \BaseController {
 	    	$user->zip = Input::get('zip');
 	    	$user->email    = Input::get('email');
 			$user->gender = Input::get('gender');
-			$user->username = Input::get('user_name');
+			$user->username = Input::get('username');
 			$user->password = Input::get('password');
 			$user->password_confirmation = Input::get('password_confirmation');
-
+			
 			$user->saveOrFail();
 
 			/* Laravel automatically calls set SportsListAttriute - tagging favorite sports*/
@@ -138,7 +138,7 @@ class UsersController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				/*return Redirect::action('HomeController@showDashboard', array($user->id));*/
+				return Redirect::action('UsersController@show', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',

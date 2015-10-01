@@ -14,10 +14,12 @@
 		    	<p>{{ $user->first_name }} {{ $user->last_name }}</p>
 		    </div>
 
-		    <div class="form-group" @if($errors->has('sports')) has-error @endif>
-		    	<label>Favorite Sports</label>
-		    	<p></p>
-		    </div>
+    	<h3><strong>Favorite Sports: </strong>
+		<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
+			@foreach($user->sports as $sport)
+				{{{ $sport->sport }}}
+			@endforeach
+		</h3>
 
 	    	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
 		    	<label>City</label>
@@ -65,6 +67,7 @@
 		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
 			<h2>Your Events</h2>
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 noFloatButton">
+
 				<a href="{{ action('GameEventsController@create')}}" class="btn btn-lg btn-block">Create A New Event</a>
 			</div>
 
