@@ -22,7 +22,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="#">Events</a></li>
-				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@login') }}}">Logout</a></li>
+				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@doLogout') }}}">Logout</a></li>
 			</ul>
 			@else
 			<ul class="nav navbar-nav navbar-right">
