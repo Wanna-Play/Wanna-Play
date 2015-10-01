@@ -9,7 +9,7 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::pagintate(15);
+		$users = User::paginate(15);
 
 		return View::make('users.index', compact('users'));
 	}
@@ -71,6 +71,16 @@ class UsersController extends \BaseController {
 
 		return View::make('users.edit', compact('user'));
 	}
+/*	public function edit($id)
+	{
+		if(Auth::id() == $id){
+			$user = Auth::user();
+			return View::make('users.edit')->with('user',$user);
+		}else{
+
+			return Redirect::action('UsersController@show()');
+		}
+	}*/
 
 	/**
 	 * Update the specified user in storage.
@@ -78,7 +88,42 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function update($id)
+	{
+		//verify password is correct first
+		/*if (Hash::check(Input::get('password'), Auth::user()->password))
+		{*/
+			/*$user = User::find(Auth::user()->id);*/
+			$user=User::find($id);
+			/*$user->profile_picture = Input::get('profile_picture');*/
+			$user->first_name = Input::get('first_name');
+			$user->last_name = Input::get('last_name');
+	    	$user->city  = Input::get('city');
+	    	$user->zip = Input::get('zip');
+	    	$user->email    = Input::get('email');
+			$user->gender = Input::get('gender');
+			$user->username = Input::get('username');
+			$user->sport = Input::get('sport');
+			$user->save();
+		// set flash data - retrieve flash data (same as any other session variable)
+		$this->setSportListAttribute(Input::get('sport_list'), $user->id);
+			Session::flash('successMessage', 'Updated successfully.');
+			if (!$user->save()) {
+			     $errors = $user->getErrors();
+			     return Redirect::action('UsersController@show', array($id)/*, Auth::id())->with('errors', $errors)->withInput(*/);
+			}
+		    // success!
+			$email = Input::get('email');
+			$password = Input::get('password');
+			Auth::attempt(array('email' => $email, 'password' => $password));
+		    return Redirect::action('UsersController@show', array($id)/*, Auth::id())->with('message', 'Event was succesfully edited'*/);
+		/*}else{*/
+			// current password didn't match database
+			return Redirect::action('UsersController@edit'/*, Auth::id())->with('errorMessage', 'Current password was incorrect.'*/);
+		/*}*/
+	}
+	/*public function update($id)
 	{
 		$user = User::findOrFail($id);
 
@@ -93,7 +138,7 @@ class UsersController extends \BaseController {
 
 		return Redirect::route('users.show');
 	}
-
+*/
 	/**
 	 * Remove the specified user from storage.
 	 *
@@ -138,7 +183,7 @@ class UsersController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				return Redirect::action('HomeController@showDashboard', array($user->id));
+				return Redirect::action('HomeController@show', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',

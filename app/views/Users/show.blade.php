@@ -21,6 +21,11 @@
 			@endforeach
 		</h3>
 
+	   {{--  	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('id')) has-error @endif>
+		    	<label>User ID</label>
+				<p>{{ $user->id }}</p>
+			</div> --}}
+
 	    	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
 		    	<label>City</label>
 				<p>{{ $user->city }}</p>
@@ -46,10 +51,13 @@
 				<p>{{ $user->username }}</p>
 			</div>
 
-    			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-					<a href="{{{ action('UsersController@edit') }}}" class="btn btn-lg btn-block">Update Profile</a>
-				</div>
-	    </div>
+    			{{-- <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
+					<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn btn-lg btn-block">Update Profile</a>
+				</div> --}}
+
+				<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
+				<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn large btn-block">Update Profile<span class = "glyphicon glyphicon-pencil"></span></a>
+	    		</div>
 	</section>
 
 	<section id="updatePasswordShow">
