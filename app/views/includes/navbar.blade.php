@@ -13,21 +13,21 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			@if ( Auth::check() )
 			<ul class="nav navbar-nav">
-				<li><a class="active linkNav">Hi, Bob!</a></li>
-				<li><a class="linkNav" href="#">My Account</a></li>
-				<li><a class="linkNav" href="#">Create</a></li>
-				<li><a class="linkNav" href="#">Edit</a></li>
+				<li><a class="active linkNav">Hi, {{ Auth::user()->username }}</a></li>
+				<li><a class="linkNav" href="{{ action('UsersController@dash') }}">My Account</a></li>
+				<li><a class="linkNav" href="{{ action('GameEventsController@create') }}">Create an Event</a></li>
+
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="linkNav" href="#">Sports</a></li>
-				<li><a class="linkNav" href="#">Events</a></li>
+				<li><a class="linkNav" href="{{ action('GameEventsController@index') }}">Events</a></li>
 				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@doLogout') }}}">Logout</a></li>
 			</ul>
 			@else
 			<ul class="nav navbar-nav navbar-right">
 				<li><a class="linkNav" href="#">Sports</a></li>
-				<li><a class="linkNav" href="#">Events</a></li>
+				<li><a class="linkNav" href="{{ action('GameEventsController@index') }}">Events</a></li>
 				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@login') }}}">Sign Up / Log In</a></li>
 			</ul>
 			@endif

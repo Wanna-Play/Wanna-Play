@@ -27,7 +27,7 @@ class GameEvent extends SoftModel {
 
 	public function sport()
 	{
-		return $this->hasOne('Sport');
+		return $this->belongsTo('Sport');
 	}
 
 	public function location()

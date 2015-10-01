@@ -19,6 +19,6 @@ class Sport extends SoftModel {
 
 	public function events()
 	{
-		return $this->belongsTo('Event');
+		return $this->hasMany('Event');
 	}
 }

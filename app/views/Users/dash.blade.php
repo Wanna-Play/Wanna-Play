@@ -56,24 +56,24 @@
 				</div> --}}
 
 				<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				{{-- <a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn large btn-block">Update Profile<span class = "glyphicon glyphicon-pencil"></span></a> --}}
+				<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn large btn-block">Update Profile<span class = "glyphicon glyphicon-pencil"></span></a>
 	    		</div>
 	</section>
 
 	<section id="updatePasswordShow">
 		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
-			{{-- <h2>Update Password</h2> --}}
-			{{-- <p>Please note, to update your password, we will redirect you to a separate page.</p> --}}
+			<h2>Update Password</h2>
+			<p>Please note, to update your password, we will redirect you to a separate page.</p>
 
-			{{-- <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				<a href="#" class="btn btn-lg btn-block">Update Password</a> --}}
+			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
+				<a href="#" class="btn btn-lg btn-block">Update Password</a>
 			</div>
 		</div>
 	</section>
 
 	<section id="userEventsShow">
 		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
-			{{-- <h2>Your Events</h2>
+			<h2>Your Events</h2>
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 noFloatButton">
 
 				<a href="{{ action('GameEventsController@create')}}" class="btn btn-lg btn-block">Create A New Event</a>
@@ -86,7 +86,7 @@
 				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
 				<li>Oct. 3rd, 7 a.m. | Swimming at San Pedro Springs Park <a href="#" class="btn btn-xs btn-primary">Cancel RSVP</a></li>
 				<li>Oct. 5th, 6 p.m. | Golf at Brackenridge <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
-			</ul> --}}
+			</ul>
 
 			<h3>Past Events</h3>
 			<ul>
