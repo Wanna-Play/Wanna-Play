@@ -8,15 +8,15 @@
 
 <h1>Listing of Game Events</h1>
 
-{{ $game_events->links() }}
- 
-@foreach($game_events as $gameevent)
-	
+{{ $events->links() }}
+
+@foreach($events as $gameevent)
+
  <div>
-	<h3><strong>Event Name: {{{$gameevent->event_name}}}</strong></h3> 
+	<h3><strong>Event Name: {{{$gameevent->event_name}}}</strong></h3>
 	{{-- <h3><strong>Event Sport Type {{{$gameevent->sport_id}}}</strong></h3> --}}
 	<h3><strong>Gender: {{{$gameevent->gender}}}</strong></h3>
-	<h3><strong>Skill Level: {{{$gameevent->skill_level}}}</strong></h3>  
+	<h3><strong>Skill Level: {{{$gameevent->skill_level}}}</strong></h3>
 	<h5><strong>Price: </strong>{{{number_format($gameevent->amount, 2) }}}</h5>
 	<h5><strong>Description: </strong>{{{Str::words($gameevent->description, 20) }}}</h5>
 
@@ -30,10 +30,10 @@
 
 			@foreach($calendarevent->tags as $tag)
 				{{{ $tag->name }}}
-			@endforeach
 		 </h5> --}}
+			@endforeach
 
-<a href="{{{action('GameEventsController@show', $gamevent->id)}}}">View Game Event</a>
+<a href="{{{action('GameEventsController@show', $gameevent->id)}}}">View Game Event</a>
 
 </div>
 

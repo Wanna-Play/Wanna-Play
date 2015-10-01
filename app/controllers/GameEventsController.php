@@ -8,7 +8,7 @@ class GameEventsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$query = GameEvent::with('user');
+		$query = GameEvent::with('organizer');
 		$search = Input::get('search');
 		if (!empty($search)) {
 			$query->where('event_name', 'like', $search . '%');
@@ -18,6 +18,7 @@ class GameEventsController extends \BaseController {
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
 		return View::make('game_events.index')->with(array('events' => $events));
 	}
+
 	public function getManage()
 	{
 		if(!Auth::check()){
@@ -26,8 +27,8 @@ class GameEventsController extends \BaseController {
 			$events = GameEvent::paginate(10);
 			return View::make('game_events.manage')->with(array('events' => $events));
 		}else{
-			$query = GameEvent::with('user');
-			$query->where('creator_id', Auth::user()->id);
+			$query = GameEvent::with('organizer');
+			$query->where('organizer_id', Auth::user()->id);
 			$events = $query->orderBy('created_at', 'DESC');
 			return View::make('game_events.manage')->with(array('events'=> $events));
 		}
@@ -105,7 +106,7 @@ class GameEventsController extends \BaseController {
 			$dropdown     = [];
 			$dropdown[-1] = 'Add new address';
 			foreach ($locations as $location) {
-				
+
 				$dropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
 			}
 				return View::make('game_events.edit', compact('event', 'dropdown'));
