@@ -14,6 +14,8 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
+Route::get('dash', 'UsersController@dash');
+
 Route::get('/login', 'UsersController@login');
 
 Route::post('/login', 'UsersController@doLogin');

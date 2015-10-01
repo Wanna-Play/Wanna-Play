@@ -66,7 +66,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function dash($id)
+	public function show($id)
 	{
 		if(!Auth::check()){
 			return Redirect::action('UsersController@login');
@@ -87,15 +87,14 @@ class UsersController extends \BaseController {
 		return View::make('users.show', compact('user'));
 	}
 
-	public function show()
+
+
+	public function dash()
 	{
-		if(!Auth::check()){
-			return Redirect::action('UsersController@login');
-		}
 		$id = Auth::id();
 		$user = User::findOrFail($id);
 
-		return View::make('users.show', compact('user'));
+		return View::make('users.dash', compact('user'));
 	}
 
 	/**
@@ -157,10 +156,10 @@ class UsersController extends \BaseController {
 			if (!$user->save()) {
 			     $errors = $user->getErrors();
 			     /*This page shows a specific user profile by user's id #;*/
-			     return View::make('users.show')->with('user', $user);
+			     return View::make('users.edit')->with('user', $user);
 
 			} else {
-				return Redirect::action('UsersController@edit')->with('user', $user);
+				return Redirect::action('UsersController@dash');
 			}
 	}
 	/**

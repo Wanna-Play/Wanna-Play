@@ -11,9 +11,7 @@ class GameEventsController extends \BaseController {
 		$query = GameEvent::with('organizer');
 		$search = Input::get('search');
 		if (!empty($search)) {
-			$query->where('event_name', 'like', $search . '%');
-			$query->orWhere('event_name', 'like', '%' . $search . '%');
-			$query->orWhere('event_name', 'like', '%' . $search);
+			$query->where('event_name', 'like', '%' . $search . '%');
 		}
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
 		return View::make('game_events.index')->with(array('events' => $events));

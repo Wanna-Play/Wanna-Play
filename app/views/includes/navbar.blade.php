@@ -14,8 +14,9 @@
 			@if ( Auth::check() )
 			<ul class="nav navbar-nav">
 				<li><a class="active linkNav">Hi, {{ Auth::user()->username }}</a></li>
-				<li><a class="linkNav" href="{{ action('UsersController@show') }}">My Account</a></li>
+				<li><a class="linkNav" href="{{ action('UsersController@dash') }}">My Account</a></li>
 				<li><a class="linkNav" href="{{ action('GameEventsController@create') }}">Create an Event</a></li>
+
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

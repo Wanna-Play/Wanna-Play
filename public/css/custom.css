@@ -6,6 +6,20 @@
 }
 
 @font-face {
+    font-family: 'Sanchez-Regular';
+    src: url('../fonts/sanchez/Sanchez-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sanchez-Italic';
+    src: url('../fonts/sanchez/Sanchez-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
     font-family: 'Quattrocento-Regular';
     src: url('../fonts/quattrocento/Quattrocento-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -101,7 +115,7 @@ body {
 }
 
 h1 {
-    font-family: 'Quattrocento-Bold', serif;
+    font-family: 'Sanchez-Regular', serif;
     font-size: 5rem;
     font-style: normal;
     font-weight: normal;
@@ -109,10 +123,10 @@ h1 {
 }
 
 h2 {
-    font-family: 'Montserrat-Regular', serif;
+    font-family: 'Sanchez-Regular', serif;
     font-size: 3rem;
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     color: #000;
 }
 
@@ -139,10 +153,10 @@ label {
 
 /* Navbar */
 .navbar-default .navbar-brand {
-	font-family: 'Montserrat-Bold', serif;
+	font-family: 'Sanchez-Italic', serif;
     font-size: 2.5rem;
-    font-style: bold;
-    font-weight: bold;
+    font-style: italic;
+    font-weight: normal;
     color: #000;
 }
 
@@ -182,7 +196,7 @@ label {
 .whiteHeader {
     font-family: 'Colleged', sans-serif;
     font-size: 7rem;
-    color: #efefef;
+    color: #525252;
 }
 
 #homeSelectionForm {
