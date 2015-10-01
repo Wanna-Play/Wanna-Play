@@ -20,10 +20,10 @@ class HomeController extends BaseController {
 		$sports = Sport::all();
 		$cities = Location::all();
 		$sportDropdown = [];
-		$sportDropdown[-1] = 'Select This Event\'s Sport';
+		$sportDropdown[-1] = 'Select a Sport';
 
 		$cityDropdown = [];
-		$cityDropdown[-1] = 'View Cities';
+		$cityDropdown[-1] = 'Select a City';
 
 		foreach ($sports as $sport) {
 			$sportDropdown[$sport->id] = $sport->sport;
