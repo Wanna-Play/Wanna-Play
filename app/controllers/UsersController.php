@@ -138,7 +138,7 @@ class UsersController extends \BaseController {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {
 				Session::flash('successMessage', 'Your Player has been successfully saved.');
-				return Redirect::action('HomeController@showDashboard', array($user->id));
+				return Redirect::action('UsersController@show', array($user->id));
 			}
 		} catch(Watson\Validating\ValidationException $e) {
 			Session::flash('errorMessage',
