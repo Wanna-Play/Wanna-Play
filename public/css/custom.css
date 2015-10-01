@@ -1,4 +1,11 @@
 @font-face {
+    font-family: 'Colleged';
+    src: url('../fonts/colleged/Colleged.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Montserrat-Regular';
     src: url('../fonts/montserrat/Montserrat-Regular.ttf') format('truetype');
     font-weight: normal;
@@ -80,10 +87,10 @@ body {
 }
 
 h1 {
-    font-family: 'Montserrat-Bold', serif;
-    font-size: 6rem;
-    font-style: bold;
-    font-weight: bold;
+    font-family: 'Colleged', serif;
+    font-size: 7rem;
+    font-style: normal;
+    font-weight: normal;
     color: #292900;
 }
 
@@ -118,11 +125,11 @@ label {
 
 /* Navbar */
 .navbar-default .navbar-brand {
-	font-family: 'Montserrat-Light', serif;
+	font-family: 'Montserrat-Bold', serif;
     font-size: 2.5rem;
-    font-style: lighter;
-    font-weight: lighter;
-    color: #292900;
+    font-style: bold;
+    font-weight: bold;
+    color: #000;
 }
 
 .navbar-default {
@@ -159,7 +166,6 @@ label {
 
 /* Home page styles */
 .whiteHeader {
-    color: #efefef !important;
 }
 
 #homeSelectionForm {
