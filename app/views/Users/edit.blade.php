@@ -34,7 +34,7 @@
 
 $(document).ready(function(){
 
-	$('#sports').tagsInput();
+	$('#sports_list').tagsInput();
 });
 
 </script>
