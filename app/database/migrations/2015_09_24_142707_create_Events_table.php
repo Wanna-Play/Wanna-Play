@@ -17,8 +17,10 @@ class CreateEventsTable extends Migration {
 			$table->increments('id');
 
 			$table->string('event_name', 255)->nullable();
+			$table->integer('sport_id')->unsigned();
+			$table->foreign('sport_id')->references('id')->on('sports');
 			$table->string('start_time')->required();
-			$table->string('end_time');
+			$table->string('end_time')->nullable();
 			$table->integer('organizer_id')->unsigned();
 			$table->foreign('organizer_id')->references('id')->on('users')->onDelete('cascade');
 			$table->enum('gender', ['M', 'F', 'Co-Ed'])->nullable();
@@ -28,7 +30,6 @@ class CreateEventsTable extends Migration {
 			$table->decimal('amount', 5, 2);
 			$table->string('description', 1500);
 			$table->string('event_image', 255)->nullable();
-			
 
 			$table->softDeletes();
 			$table->timestamps();
