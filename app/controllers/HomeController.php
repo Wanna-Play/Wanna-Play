@@ -17,7 +17,23 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('home');
+		$sports = Sport::all();
+		$cities = Location::all();
+		$sportDropdown = [];
+		$sportDropdown[-1] = 'Select This Event\'s Sport';
+
+		$cityDropdown = [];
+		$cityDropdown[-1] = 'View Cities';
+
+		foreach ($sports as $sport) {
+			$sportDropdown[$sport->id] = $sport->sport;
+		}
+
+		foreach ($cities as $city) {
+			$cityDropdown[$city->id] = $city->city;
+		}
+
+		return View::make('home')->with('sportDropdown', $sportDropdown)->with('cityDropdown', $cityDropdown);
 	}
 
 	public function showLogin()
