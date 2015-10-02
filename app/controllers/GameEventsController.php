@@ -127,10 +127,11 @@ class GameEventsController extends \BaseController {
 
 			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
 
-			} else {
-				Session::flash('errorMessage', 'Access not authorized');
-				return Redirect::action('GameEventsController@index');
-			}
+			} 
+		}else {
+			Session::flash('errorMessage', 'Access not authorized');
+			return Redirect::action('GameEventsController@index');
+		}
 	}
 	/**
 	 * Update the specified calendarevent in storage.
