@@ -12,6 +12,7 @@
 	    	<h2>Edit Your Profile</h2>
 	    	{{ Form::model($user, array('action'=> array('UsersController@update', $user->id), 'method'=>'PUT', 'files' => true)) }}
     		{{ Form::open(array('action' => 'UsersController@store', 'files'=>true)) }}
+    		
     			@include('users.users-create-edit-form')
 
     			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">

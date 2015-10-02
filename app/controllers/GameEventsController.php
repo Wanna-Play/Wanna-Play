@@ -9,10 +9,18 @@ class GameEventsController extends \BaseController {
 	public function index()
 	{
 		$query = GameEvent::with('organizer');
-		$search = Input::get('search');
-		if (!empty($search)) {
-			$query->where('event_name', 'like', '%' . $search . '%');
-		}
+
+		// if (Input::has('cities')) {
+		// 	$query->whereHas('location', function($q) {
+		// 		$q->where('city', Input::get('cities'));
+		// 	});
+		// }
+		// if (Input::has('sports')) {
+		// 	$query->whereHas('sports', function($q) {
+		// 		$q->where('sport', Input::get('sports'));
+		// 	});
+		// }
+
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
 		return View::make('game_events.index')->with(array('events' => $events));
 	}
@@ -41,25 +49,16 @@ class GameEventsController extends \BaseController {
 		// if(!Auth::check()){
 		// 	return Redirect::action('UsersController@doLogin');
 		// }
-		$locations    = Location::all();
+
 		$sports = Sport::all();
-		$cities = Location::all();
-		$cityDropdown = [];
-		$cityDropdown[-1] = 'View Cities';
 		$sportDropdown = [];
 		$sportDropdown[-1] = 'Select This Event\'s Sport';
-		$locationDropdown = [];
-		$locationDropdown[-1] = 'Add New Venue';
+
 		foreach ($sports as $sport) {
 			$sportDropdown[$sport->id] = $sport->sport;
 		}
-		foreach ($cities as $city) {
-			$cityDropdown[$city->id] = $city->city;
-		}
-		foreach ($locations as $location) {
-			$locationDropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
-		}
-		return View::make('game_events.create')->with('cityDropdown', $cityDropdown)->with('sportDropdown', $sportDropdown)->with('locationDropdown', $locationDropdown);
+
+		return View::make('game_events.create')->with('sportDropdown', $sportDropdown);
 	}
 	/**
 	 * Store a newly created gameevent in storage.
@@ -88,10 +87,10 @@ class GameEventsController extends \BaseController {
 		if(!$event)
 		{
 			/* TO DO - ADD return Redirect::back();*/
-			
+
 			// set flash data
 			Session::flash('errorMessage', 'Unable to find that event - please try again.');
-			
+
 			App::abort(404);
 		}
 		 	// set flash data
@@ -125,9 +124,9 @@ class GameEventsController extends \BaseController {
 			$dropdown[-1] = 'Add new address';
 			foreach ($locations as $location) {
 
-				$dropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
-			}
-				return View::make('game_events.edit', compact('event', 'dropdown'));
+
+			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
+
 			} else {
 				Session::flash('errorMessage', 'Access not authorized');
 				return Redirect::action('GameEventsController@index');
@@ -172,6 +171,8 @@ class GameEventsController extends \BaseController {
 			if(Input::hasFile('event_image')) {
 				$filename = Input::file('event_image')->getClientOriginalName();
 				$event->event_image = Input::file('event_image')->move($uploads_directory, $filename);
+			}else{
+				$event->event_image = "http://lorempixel.com/200/200/sports/19/";
 			}
 
 	    	$location->name_of_location   	= Input::get('name_of_location');
@@ -181,7 +182,7 @@ class GameEventsController extends \BaseController {
 	    	$location->phone = Input::get('phone');
 	    	$location->url = Input::get('url');
 	    	$location->saveOrFail();
-		    
+
 	    	$event->start_time  = Input::get('start_time');
 	    	$event->end_time    = Input::get('end_time');
 			$event->event_name 	= Input::get('event_name');
