@@ -41,25 +41,16 @@ class GameEventsController extends \BaseController {
 		// if(!Auth::check()){
 		// 	return Redirect::action('UsersController@doLogin');
 		// }
-		$locations    = Location::all();
+		
 		$sports = Sport::all();
-		$cities = Location::all();
-		$cityDropdown = [];
-		$cityDropdown[-1] = 'View Cities';
 		$sportDropdown = [];
 		$sportDropdown[-1] = 'Select This Event\'s Sport';
-		$locationDropdown = [];
-		$locationDropdown[-1] = 'Add New Venue';
+		
 		foreach ($sports as $sport) {
 			$sportDropdown[$sport->id] = $sport->sport;
 		}
-		foreach ($cities as $city) {
-			$cityDropdown[$city->id] = $city->city;
-		}
-		foreach ($locations as $location) {
-			$locationDropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
-		}
-		return View::make('game_events.create')->with('cityDropdown', $cityDropdown)->with('sportDropdown', $sportDropdown)->with('locationDropdown', $locationDropdown);
+		
+		return View::make('game_events.create')->with('sportDropdown', $sportDropdown);
 	}
 	/**
 	 * Store a newly created gameevent in storage.
@@ -99,15 +90,18 @@ class GameEventsController extends \BaseController {
 		}
 		if(!Auth::check()){
 			return Redirect::action('UsersController@doLogin');
-		}elseif ((Auth::id() == $event->creator_id) || (Auth::user()->role == 'admin')) {
-			$locations    = Location::all();
-			$dropdown     = [];
-			$dropdown[-1] = 'Add new address';
-			foreach ($locations as $location) {
+		} elseif ((Auth::id() == $event->creator_id) || (Auth::user()->role == 'admin')) {
+			
+			$sports = Sport::all();
+			$sportDropdown = [];
+			$sportDropdown[-1] = 'Select This Event\'s Sport';
 
-				$dropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
+			foreach ($sports as $sport) {
+				$sportDropdown[$sport->id] = $sport->sport;
 			}
-				return View::make('game_events.edit', compact('event', 'dropdown'));
+			
+			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
+
 			} else {
 				Session::flash('errorMessage', 'Access not authorized');
 				return Redirect::action('GameEventsController@index');
