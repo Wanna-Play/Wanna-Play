@@ -55,6 +55,7 @@
 @section('script')
 
 {{-- jQuery tagsInput plugin script --}}
+
 <script>
 
 $(document).ready(function(){
@@ -63,5 +64,6 @@ $(document).ready(function(){
 });
 
 </script>
+
 
 @stop

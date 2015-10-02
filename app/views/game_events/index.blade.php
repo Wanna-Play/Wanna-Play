@@ -15,6 +15,7 @@
 
 		<h3><strong>Event Name: {{{$gameevent->event_name}}}</strong></h3>
 		{{-- add sport tags using jQuery plugin tagsinput --}}
+
 		<h3><strong>Sport Type: {{{$gameevent->sport->sport}}}</strong></h3>
 		<h3><strong>Gender: {{{$gameevent->gender}}}</strong></h3>
 		<h3><strong>Skill Level: {{{$gameevent->skill_level}}}</strong></h3>

@@ -108,10 +108,10 @@ body {
 
 
 #homePageImage {
-    background-image: url(/img/football-field.png);
+    /*background-image: url(/img/football-field.png);
     background-repeat: no-repeat;
     background-position: top right fixed;
-    background-size: cover;
+    background-size: cover;*/
 }
 
 h1 {
@@ -131,18 +131,18 @@ h2 {
 }
 
 h3 {
-    font-family: 'Montserrat-Light', serif;
+    font-family: 'Hind-Semibold', serif;
     font-size: 3rem;
-    font-style: lighter;
-    font-weight: normal;
+    font-style: bold;
+    font-weight: bold;
     color: #000;
 }
 
 h4 {
-    font-family: 'Quattrocento-Bold', serif;
+    font-family: 'Sanchez-Regular' , serif;
     font-size: 2rem;
-    font-style: bolder;
-    font-weight: bolder;
+    font-style: normal;
+    font-weight: normal;
     color: #292900;
 }
 
@@ -157,7 +157,7 @@ label {
     font-size: 2.5rem;
     font-style: italic;
     font-weight: normal;
-    color: #000;
+    color: #000000;
 }
 
 .navbar-default {
@@ -171,22 +171,19 @@ label {
 }
 
 .navbar-default .navbar-nav > .logIn > a {
-	background-color: #B8D8D8 !important;
+	background-color: #8AB8E6 !important;
 	background-image: none;
 }
 
 .navbar-default .navbar-nav > .logIn > a:hover {
-    background-color: #C6E0E0 !important;
+    background-color: #6E93B8 !important;
+    color: #ffffff;
     background-image: none;
 }
 
 #homePageImage > .container > .navbar-default .navbar-nav > li > a {
     color: #ffffff;
     text-shadow: none;
-}
-
-#homePageImage > .container > .navbar-default .navbar-nav > li > a:hover {
-    color: #292900;
 }
 
 
@@ -196,11 +193,65 @@ label {
 .whiteHeader {
     font-family: 'Colleged', sans-serif;
     font-size: 7rem;
-    color: #525252;
+    color: #B8B8B8;
+    text-align: center;
+    display: block;
+}
+
+.homeHeadLine {
+    text-align: center;
+    display: block;
+    color: #ffffff;
+    font-size: 2rem;
 }
 
 #homeSelectionForm {
     margin-bottom: 100px;
+}
+
+#homePageButton {
+   background-color: #FF9933 !important;
+}
+
+#homePageButton:hover {
+   background-color: #CC7A29 !important;
+}
+
+.center-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    overflow: auto;
+}
+
+.center-container:after {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.center-container:after {
+    content: '';
+    height: 100%;
+    margin-left: -0.25em; /* To offset spacing. May vary by font */
+}
+
+#aboutSection {
+    text-align: center;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#aboutSection > h2 {
+    font-size: 3rem;
+}
+
+#aboutSection > p {
+    font-size: 2rem;
 }
 
 .btn-block {
@@ -216,8 +267,32 @@ label {
     width: 100%;
     border-radius: 0;
     background-color: #64B98B;
+    color: #ffffff;
 }
 
+.transparentOverlay {
+    background: rgba(0,0,0,.4);
+    border-radius: 2px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    color: #ccc;
+    margin-top: 5%;
+}
+
+hr {
+    width: 50%; 
+    color: #eeeeee; 
+    height: 1px; 
+    background-color:#dcdcdc;
+    clear: both;
+}
+
+.devTeamPic {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
 
 /* Login / Sign Up page */
 .noPaddingLeft {
@@ -236,16 +311,11 @@ label {
     margin-bottom: 25px;
 }
 
-.homeHeadLine {
-    text-align: center;
-    display: block;
-}
-
 .btn-signUp {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #FFA347;
+    background-color: #8AB8E6;
     color: #ffffff;
 }
 
