@@ -11,24 +11,24 @@
 	{{ $events->links() }}
 
 
-	@foreach($events as $gameevent)
+	@foreach($events as $event)
 
-		<h3><strong>Event Name: {{{$gameevent->event_name}}}</strong></h3>
+		<h3><strong>Event Name: {{{$event->event_name}}}</strong></h3>
 		{{-- add sport tags using jQuery plugin tagsinput --}}
 
-		<h3><strong>Sport Type: {{{$gameevent->sports->sport}}}</strong></h3>
-		<h3><strong>Gender: {{{$gameevent->gender}}}</strong></h3>
-		<h3><strong>Skill Level: {{{$gameevent->skill_level}}}</strong></h3>
-		<h5><strong>Price: </strong>{{{number_format($gameevent->amount, 2) }}}</h5>
-		<h5><strong>Description: </strong>{{{Str::words($gameevent->description, 20) }}}</h5>
 
-		<h5><strong>Start Time: </strong>{{$gameevent->start_time}}</h5>
+		<h3><strong>Sport Type: {{{$event->sport->sport}}}</strong></h3>
+		<h3><strong>Gender: {{{$event->gender}}}</strong></h3>
+		<h3><strong>Skill Level: {{{$event->skill_level}}}</strong></h3>
+		<h5><strong>Price: </strong>{{{number_format($event->amount, 2) }}}</h5>
+		<h5><strong>Description: </strong>{{{Str::words($event->description, 20) }}}</h5>
+		<h5><strong>Start Time: </strong>{{$event->start_time}}</h5>
 
-		<h5><strong>End Time: </strong>{{$gameevent->end_time}}</h5>
+		<h5><strong>End Time: </strong>{{$event->end_time}}</h5>
 
 
 
-<a href="{{{action('GameEventsController@show', $gameevent->id)}}}">View Game Event</a>
+<a href="{{{action('GameEventsController@show', $event->id)}}}">View Game Event</a>
 @endforeach
 
 {{-- <div class="container-fluid">

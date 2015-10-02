@@ -187,6 +187,8 @@ class UsersController extends \BaseController {
 			if(Input::hasFile('profile_picture')) {
 				$filename = Input::file('profile_picture')->getClientOriginalName();
 				$user->profile_picture = Input::file('profile_picture')->move($uploads_directory, $filename);
+			}else{
+				$user->profile_picture = "http://lorempixel.com/200/200/sports/6/";
 			}
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');
