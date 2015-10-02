@@ -10,7 +10,15 @@ class GameEventsController extends \BaseController {
 	{
 		$query = GameEvent::with('organizer');
 		$search = Input::get('search');
+
 		if (!empty($search)) {
+			if ($cityDropdown) {
+				$
+			}
+			if ($cityDropdown && $sportDropdown) {
+				query->where('location_id', $cityDropdown);
+
+			}
 			$query->where('event_name', 'like', '%' . $search . '%');
 		}
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
