@@ -25,7 +25,7 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 		'email' => 'required|max:255|unique:users',
 		'gender' => 'required',
 		'city' => 'required|max:255',
-		'zip' => 'required|max:99999',
+		'zip' => 'required|digits:5',
 		'password' => 'required|max:255'
 	);
 
@@ -70,6 +70,10 @@ class User extends SoftModel implements UserInterface, RemindableInterface {
 			stops sports table from duplicating sport names*/
 			$sport = Sport::firstOrCreate(array('sport'=>$sportName));
 			$sportIds[] = $sport->id;
+
+			if(!$sport->id) {
+				dd($sport);
+			}
 			/* sync is a Laravel method to attach related models;
 			sync accepts array of ids to be placed on pivot table
 			only the ids in the array will be on the intermediate table sport_user pivot table*/

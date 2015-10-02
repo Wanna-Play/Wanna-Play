@@ -1,16 +1,29 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="col-xs-12">
-	<div id="createEvent">
 
-		@foreach($errors->all() as $error)
+
+<h1>Edit Event Number: {{$event->id}}</h1>
+
+{{-- uses token control option below to prevent Cross Site Request Forgery (CSRF) attacks --}}
+
+
+<div class="col-xs-12">
+  <div>
+
+    @foreach($errors->all() as $error)
             <div class="alert alert-warning" role="alert">{{{ $error }}}</div>
         @endforeach
 
         <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
-        	<h2>Edit an Event</h2>
-        	{{ Form::open(array('action' => 'GameEventsController@store', 'files' => true)) }}
+          <h2>Edit an Event</h2>
+{{ Form::model($event, ['method'=>'PUT','action'=>['GameEventsController@edit', $event->id]]) }}
+        {{-- 	{{ Form::open(array('action' => 'GameEventsController@store', 'files' => true)) }} --}}
+
+
+
+
+
 
        		@include('game_events.create-edit-form')
         
@@ -21,7 +34,7 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				{{ Form::button('Submit Event', array('class' => 'btn btn-lg btn-block', 'type' => 'submit')) }}
+				{{ Form::button('Submit Changes', array('class' => 'btn btn-lg btn-block', 'type' => 'submit')) }}
 			</div>
 		</div>
 

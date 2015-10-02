@@ -120,6 +120,7 @@ class GameEventsController extends \BaseController {
 			return Redirect::action('UsersController@doLogin');
 		}elseif ((Auth::id() == $event->organizer_id) || (Auth::user()->role == 'admin')) {
 			$locations    = Location::all();
+
 			$dropdown     = [];
 			$dropdown[-1] = 'Add new address';
 			foreach ($locations as $location) {

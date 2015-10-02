@@ -13,6 +13,9 @@
 
 	@foreach($events as $gameevent)
 
+	{{-- TO DO:  Add Image Tag 	
+		<h3><strong>Event Image: {{{$gameevent->event_image->event_image}}}</strong></h3> --}}
+
 		<h3><strong>Event Name: {{{$gameevent->event_name}}}</strong></h3>
 		{{-- add sport tags using jQuery plugin tagsinput --}}
 

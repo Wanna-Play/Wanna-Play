@@ -201,7 +201,8 @@ class UsersController extends \BaseController {
 			$user->saveOrFail();
 
 			/* Laravel automatically calls set SportsListAttriute - tagging favorite sports*/
-			$user->sports_list = Input::get('sports');
+
+			$user->sports_list = Input::get('sports_list');
 			if (Request::wantsJson()) {
 				return Response::json(array('Status' => 'Request Succeeded'));
 	        } else {

@@ -5,7 +5,8 @@ use \Esensi\Model\SoftModel;
 class Sport extends SoftModel {
 
 	protected $table = 'sports';
-
+	protected $throwValidationExceptions = true;
+	
 	protected $rules = array(
 		'sport' => 'required|max:250|unique:sports'
 	);
