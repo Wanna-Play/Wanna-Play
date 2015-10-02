@@ -25,7 +25,7 @@ class GameEvent extends SoftModel {
 		return $this->belongsTo('User', 'user_id');
 	}
 
-	public function sport()
+	public function sports()
 	{
 		return $this->belongsTo('Sport');
 	}

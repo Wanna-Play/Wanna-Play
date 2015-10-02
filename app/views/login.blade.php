@@ -55,13 +55,15 @@
 @section('script')
 
 {{-- jQuery tagsInput plugin script --}}
+
 <script>
 
 $(document).ready(function(){
 
-	$('#sports').tagsInput();
+	$('#sports_list').tagsInput();
 });
 
 </script>
+
 
 @stop

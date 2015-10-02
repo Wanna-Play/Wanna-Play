@@ -31,15 +31,22 @@
 	</div>
 </div>
 
-
-        
-
 </div>
 @stop
 
 @section('script')
 <script src="/bower/bower_components/datetimepicker/jquery.datetimepicker.js"></script>
 <script src="/bower/bower_components/moment/min/moment.min.js"></script>
+
+{{-- jQuery tagsInput plugin script --}}
+<script>
+
+$(document).ready(function(){
+
+  $('#sports_list').tagsInput();
+});
+
+</script>
 
 <script>
    Date.parseDate = function( input, format ){
