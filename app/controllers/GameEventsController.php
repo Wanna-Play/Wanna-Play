@@ -9,10 +9,18 @@ class GameEventsController extends \BaseController {
 	public function index()
 	{
 		$query = GameEvent::with('organizer');
-		$search = Input::get('search');
-		if (!empty($search)) {
-			$query->where('event_name', 'like', '%' . $search . '%');
-		}
+
+		// if (Input::has('cities')) {
+		// 	$query->whereHas('location', function($q) {
+		// 		$q->where('city', Input::get('cities'));
+		// 	});
+		// }
+		// if (Input::has('sports')) {
+		// 	$query->whereHas('sports', function($q) {
+		// 		$q->where('sport', Input::get('sports'));
+		// 	});
+		// }
+
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
 		return View::make('game_events.index')->with(array('events' => $events));
 	}
@@ -41,15 +49,15 @@ class GameEventsController extends \BaseController {
 		// if(!Auth::check()){
 		// 	return Redirect::action('UsersController@doLogin');
 		// }
-		
+
 		$sports = Sport::all();
 		$sportDropdown = [];
 		$sportDropdown[-1] = 'Select This Event\'s Sport';
-		
+
 		foreach ($sports as $sport) {
 			$sportDropdown[$sport->id] = $sport->sport;
 		}
-		
+
 		return View::make('game_events.create')->with('sportDropdown', $sportDropdown);
 	}
 	/**
@@ -79,10 +87,10 @@ class GameEventsController extends \BaseController {
 		if(!$event)
 		{
 			/* TO DO - ADD return Redirect::back();*/
-			
+
 			// set flash data
 			Session::flash('errorMessage', 'Unable to find that event - please try again.');
-			
+
 			App::abort(404);
 		}
 		 	// set flash data
@@ -110,7 +118,7 @@ class GameEventsController extends \BaseController {
 		if(!Auth::check()){
 			return Redirect::action('UsersController@doLogin');
 		} elseif ((Auth::id() == $event->creator_id) || (Auth::user()->role == 'admin')) {
-			
+
 			$sports = Sport::all();
 			$sportDropdown = [];
 			$sportDropdown[-1] = 'Select This Event\'s Sport';
@@ -118,7 +126,7 @@ class GameEventsController extends \BaseController {
 			foreach ($sports as $sport) {
 				$sportDropdown[$sport->id] = $sport->sport;
 			}
-			
+
 			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
 
 			} else {
@@ -165,6 +173,8 @@ class GameEventsController extends \BaseController {
 			if(Input::hasFile('event_image')) {
 				$filename = Input::file('event_image')->getClientOriginalName();
 				$event->event_image = Input::file('event_image')->move($uploads_directory, $filename);
+			}else{
+				$event->event_image = "http://lorempixel.com/200/200/sports/19/";
 			}
 
 	    	$location->name_of_location   	= Input::get('name_of_location');
@@ -174,7 +184,7 @@ class GameEventsController extends \BaseController {
 	    	$location->phone = Input::get('phone');
 	    	$location->url = Input::get('url');
 	    	$location->saveOrFail();
-		    
+
 	    	$event->start_time  = Input::get('start_time');
 	    	$event->end_time    = Input::get('end_time');
 			$event->event_name 	= Input::get('event_name');
