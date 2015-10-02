@@ -10,18 +10,19 @@
 
         <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
         	<h2>Edit an Event</h2>
-        	{{ Form::open(array('action' => 'GameEventsController@store', 'files' => true)) }}
+        	{{ Form::model($event, array('action' => array('GameEventsController@update', $event->id), 'method' => 'PUT', 'files' => true)) }}
 
        		@include('game_events.create-edit-form')
         
 	        <div class="form-group">
 				{{ Form::label('organizer_contact', 'Organizer Contact Agreement') }}
+
 				<p>Organizers <em>must</em> agree to be contacted by players who register for the event and have questions related to the event.</p>
 				<input type="checkbox" id="organizer_contact"> Check this box to agree and complete your event listing<br>
 			</div>
 
 			<div class="col-xs-12 col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				{{ Form::button('Submit Event', array('class' => 'btn btn-lg btn-block', 'type' => 'submit')) }}
+				{{ Form::button('Submit Changes', array('class' => 'btn btn-lg btn-block', 'type' => 'submit')) }}
 			</div>
 		</div>
 
