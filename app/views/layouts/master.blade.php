@@ -43,25 +43,7 @@
 
 	</div>
 
-	<footer class="footer col-sm-12">
-		<div class="container">
-			<div class="col-sm-4">
-				<h4>About</h4>
-				<p>Wanna Play connects people who love to play sports in Texas!</p>
-				<p>This site was created as a capstone project for Codeup's Web development bootcamp.</p>
-			</div>
-
-			<div class="col-sm-4">
-				<h4>The Team</h4>
-				<p>Meet our dev team: Julie Buser, Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
-			</div>
-
-			<div class="col-sm-4">
-				<h4>Contact</h4>
-				<p>Don't see the sport you love or your city on Wanna Play? Let us know! Email our team at <a href="#">hello@wannaplay.com</a> </p>
-			</div>
-		</div>
-	</footer>
+@include('includes.footer')
 
 
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
