@@ -117,15 +117,13 @@ class GameEventsController extends \BaseController {
 		}
 		if(!Auth::check()){
 			return Redirect::action('UsersController@doLogin');
-		} elseif ((Auth::id() == $event->creator_id) || (Auth::user()->role == 'admin')) {
+		}elseif ((Auth::id() == $event->organizer_id) || (Auth::user()->role == 'admin')) {
+			$locations    = Location::all();
 
-			$sports = Sport::all();
-			$sportDropdown = [];
-			$sportDropdown[-1] = 'Select This Event\'s Sport';
+			$dropdown     = [];
+			$dropdown[-1] = 'Add new address';
+			foreach ($locations as $location) {
 
-			foreach ($sports as $sport) {
-				$sportDropdown[$sport->id] = $sport->sport;
-			}
 
 			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
 
