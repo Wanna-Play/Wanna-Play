@@ -8,16 +8,15 @@ class GameEventsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$query = GameEvent::with('user');
+		$query = GameEvent::with('organizer');
 		$search = Input::get('search');
 		if (!empty($search)) {
-			$query->where('event_name', 'like', $search . '%');
-			$query->orWhere('event_name', 'like', '%' . $search . '%');
-			$query->orWhere('event_name', 'like', '%' . $search);
+			$query->where('event_name', 'like', '%' . $search . '%');
 		}
 		$events = $query->orderBy('start_time', 'DESC')->paginate(10);
 		return View::make('game_events.index')->with(array('events' => $events));
 	}
+
 	public function getManage()
 	{
 		if(!Auth::check()){
@@ -26,8 +25,8 @@ class GameEventsController extends \BaseController {
 			$events = GameEvent::paginate(10);
 			return View::make('game_events.manage')->with(array('events' => $events));
 		}else{
-			$query = GameEvent::with('user');
-			$query->where('creator_id', Auth::user()->id);
+			$query = GameEvent::with('organizer');
+			$query->where('organizer_id', Auth::user()->id);
 			$events = $query->orderBy('created_at', 'DESC');
 			return View::make('game_events.manage')->with(array('events'=> $events));
 		}
@@ -81,11 +80,30 @@ class GameEventsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+
 	public function show($id)
 	{
 		$event = GameEvent::findOrFail($id);
+
+		if(!$event)
+		{
+			/* TO DO - ADD return Redirect::back();*/
+			
+			// set flash data
+			Session::flash('errorMessage', 'Unable to find that event - please try again.');
+			
+			App::abort(404);
+		}
+		 	// set flash data
+			Session::flash('successMessage', 'Your event was successfully found.');
+
+			// retrieve flash data (same as any other session variable)
+			$value = Session::get('key');
+
+		/*return 'This page shows a specific event by id number';*/
 		return View::make('game_events.show', compact('event'));
 	}
+
 	/**
 	 * Show the form for editing the specified gameevent.
 	 *
@@ -105,7 +123,7 @@ class GameEventsController extends \BaseController {
 			$dropdown     = [];
 			$dropdown[-1] = 'Add new address';
 			foreach ($locations as $location) {
-				
+
 				$dropdown[$location->id] = $location->name_of_location . " - " . $location->city . ', ' . $location->state;
 			}
 				return View::make('game_events.edit', compact('event', 'dropdown'));
@@ -154,25 +172,25 @@ class GameEventsController extends \BaseController {
 				$filename = Input::file('event_image')->getClientOriginalName();
 				$event->event_image = Input::file('event_image')->move($uploads_directory, $filename);
 			}
-			if (Input::get('location') == '-1') {
-		    	$location->name_of_location   	= Input::get('name_of_location');
-		    	$location->address 	= Input::get('address');
-		    	$location->city    = Input::get('city');
-		    	$location->state   = Input::get('state');
-		    	$location->zip 	= Input::get('zip');
-		    	$location->phone = Input::get('phone');
-		    	$location->url = Input::get('url');
-		    	$location->saveOrFail();
-		    } else {
-		    	$location = Location::findOrFail(Input::get('location'));
-		    }
+
+	    	$location->name_of_location   	= Input::get('name_of_location');
+	    	$location->address 	= Input::get('address');
+	    	$location->city    = Input::get('city');
+	    	$location->zip 	= Input::get('zip');
+	    	$location->phone = Input::get('phone');
+	    	$location->url = Input::get('url');
+	    	$location->saveOrFail();
+		    
 	    	$event->start_time  = Input::get('start_time');
 	    	$event->end_time    = Input::get('end_time');
 			$event->event_name 	= Input::get('event_name');
 			$event->description = Input::get('description');
 			$event->amount 		= Input::get('amount');
 			$event->location_id = $location->id;
-			$event->creator_id 	= Auth::id();
+			$event->sport_id = Input::get('select_sport');
+			$event->organizer_id 	= Auth::id();
+			$event->skill_level = Input::get('select_skill_level');
+			$event->event_image = Input::get('event_image');
 			$event->saveOrFail();
 			if (Request::wantsJson()) {
 				return Response::json(array('Status' => 'Request Succeeded'));

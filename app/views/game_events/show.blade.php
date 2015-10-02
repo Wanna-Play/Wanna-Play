@@ -1,32 +1,83 @@
 @extends('layouts.master')
 
-
 @section('content')
 
-<a href="#" class="btn btn-primary">Edit Event</a>
+<title>Event Show Page</title>
 
-<h1>Baseball at Brackenridge Park</h1>
+<div class = "container col-sm-12">
 
-<p>Sport: Baseball</p>
-<p>Location: 123 Broadway, San Antonio, TX 78209</p>
-<p>Time:</p>
-<p>Starts at: Today, 6 p.m.</p>
-<p>Ends at: Today, 8 p.m.</p>
+	{{-- TO DO: ADD event imagge - make it conditional, if images then go to foreach; otherwise show post without images --}}
+	{{-- <div row>
+		<div class = "col-sm-4 showImage">
+			@foreach($post->images as $image)
+				<img class = "postImage" src="{{ '/' . $image->url }}">
+			@endforeach
+		</div>
+ --}}
 
-<p>Description:</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div class = "col-sm-8">
+			
+		<h3><strong>Event Name: {{{$event->event_name}}}</strong></h3>
 
-<p>Admission: Pay to play | $3 per person</p>
+		{{-- add sport tags using jQuery plugin tagsinput --}}
+		<h3><strong>Sport Type: {{{$event->sport->sport}}}</strong></h3>
 
-<p>Skill Level: Beginner | Gender: Mixed</p>
+		<h3><strong>Gender: {{{$event->gender}}}</strong></h3>
 
-<p><a href="#" class="btn btn-primary">RSVP for Event</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
+		<h3><strong>Skill Level: {{{$event->skill_level}}}</strong></h3>
 
-<p><a href="#" class="btn btn-primary">Cancel RSVP</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
+		<h5><strong>Price: </strong>{{{number_format($event->amount, 2) }}}</h5>
+
+		<h5><strong>Description: </strong>{{{Str::words($event->description, 20) }}}</h5>
+
+		<h5><strong>Start Time: </strong>{{$event->start_time}}</h5>
+
+		<h5><strong>End Time: </strong>{{$event->end_time}}</h5>
+
+		<h3><strong>Event Created: </strong>{{$event->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}</h3>
+
+	
+ 	<p></p>
+	<a href="{{{action('GameEventsController@edit',$event->id)}}}" class="btn btn-default">Edit Event<span class = "glyphicon glyphicon-pencil"></span></a>
+
+	<button id="delete" class="btn btn-danger">Delete Event<span class = "glyphicon glyphicon-trash"></span></button>
+
+	{{ Form::open(array('action' => array('GameEventsController@destroy', $event->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
+	{{ Form::close() }}
+	
+	{{-- <a href="#" class="btn btn-primary">Edit Event</a> --}}
+
+	<p><a href="#" class="btn btn-primary">RSVP for Event</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
+
+	<p><a href="#" class="btn btn-primary">Cancel RSVP</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
+
+		</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		"use strict";
+
+		$('#delete').on('click', function(){
+
+			var onConfirm = confirm('Are you sure you want to delete this event? There is no turning back!');
+
+			if(onConfirm) {
+				$('#formDelete').submit();
+			}
+		});
+
+	</script>
+
+@stop
+
+<script>
+  /*add Google Analytics*/
+</script>
+
+</script>
+
+
+
 
 @stop
