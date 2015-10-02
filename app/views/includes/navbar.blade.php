@@ -20,7 +20,6 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="{{ action('GameEventsController@index') }}">Events</a></li>
 				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@doLogout') }}}">Logout</a></li>
 			</ul>

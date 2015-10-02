@@ -181,11 +181,22 @@ label {
     background-image: none;
 }
 
-#homePageImage > .container > .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+#notTheHome > .container > .navbar-default .navbar-nav > li > a {
+    color: #777;
     text-shadow: none;
 }
 
+#notTheHome > .container > .navbar-default .navbar-nav > li > a:hover {
+    color: #292900;
+}
+
+#notTheHome > .container > .navbar-default .navbar-nav > .logIn > a {
+    color: #ffffff;
+}
+
+#notTheHome > .container > .navbar-default .navbar-nav > .logIn > a:hover {
+    color: #ffffff;
+}
 
 
 
@@ -215,6 +226,21 @@ label {
 
 #homePageButton:hover {
    background-color: #CC7A29 !important;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > li > a:hover {
+    color: #292900;
+    text-shadow: none;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > .logIn > a:hover {
+    color: #ffffff;
+    text-shadow: none;
 }
 
 .center-container {

@@ -32,15 +32,17 @@
 	<title>Wanna Play</title>
 </head>
 <body>
-	<div class="container">
-		@include('includes.navbar')
-	</div>
+	<div class="col-sm-12" id="notTheHome">
+		<div class="container">
+			@include('includes.navbar')
+		</div>
 
-	<div class="container">
-		<section id="contentContainer">
-			@yield('content')
-		</section>
+		<div class="container">
+			<section id="contentContainer">
+				@yield('content')
+			</section>
 
+		</div>
 	</div>
 
 @include('includes.footer')

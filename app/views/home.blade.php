@@ -28,7 +28,7 @@
 	<div id="block" style="width: 100%; height: 650px; z-index: -100;" data-vide-bg="/video/full" data-vide-options="position: 0% 50%"></div>
 
 	<div class="center-container">
-		<div id="homePageImage" class="col-sm-12" style="z-index: 100;">
+		<div id="homePageSpecial" class="col-sm-12" style="z-index: 100;">
 			<div class="container">
 				@include('includes.navbar')
 			</div>
