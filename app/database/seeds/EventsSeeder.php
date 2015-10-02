@@ -12,7 +12,8 @@ class EventsSeeder extends Seeder {
 		$sport = Sport::all();
 
 		$event = new GameEvent();
-		
+
+
 		$event->sport_id=$sport->random()->id;
 		$event->event_name='Soccer Game';
 		$event->start_time='2015-10-01 12:00 pm';

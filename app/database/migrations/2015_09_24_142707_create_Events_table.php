@@ -31,6 +31,7 @@ class CreateEventsTable extends Migration {
 			$table->string('description', 1500);
 			$table->string('event_image', 255)->nullable();
 
+
 			$table->softDeletes();
 			$table->timestamps();
 		});
