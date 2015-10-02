@@ -238,7 +238,7 @@ class UsersController extends \BaseController {
 		{
 			Log::info('Login Successful - ', array('User = ' => Input::get('email_or_username')));
 			// return 'test';
-		    return Redirect::intended('/');
+		    return Redirect::action('UsersController@dash');
 
 		} else {
 
