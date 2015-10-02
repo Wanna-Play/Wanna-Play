@@ -17,7 +17,7 @@
     	<h3><strong>Favorite Sports: </strong>
 		<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
 			@foreach($user->sports as $sport)
-				{{{ $sport->sport }}}
+				{{{ ' [ ' . $sport->sport . ' ] ' }}}
 			@endforeach
 		</h3>
 
