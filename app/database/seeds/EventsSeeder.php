@@ -13,7 +13,6 @@ class EventsSeeder extends Seeder {
 
 		$event = new GameEvent();
 
-
 		$event->sport_id=$sport->random()->id;
 		$event->event_name='Soccer Game';
 		$event->start_time='2015-10-01 12:00 pm';
@@ -21,11 +20,10 @@ class EventsSeeder extends Seeder {
 		$event->gender='Co-Ed';
 		$event->skill_level='Intermediate';
 		$event->amount=2.00;
-		$event->organizer_id=$user->id;
+		$event->organizer_id=1;
+		$event->event_image='http://lorempixel.com/200/200/sports';
 		$event->description='testing 123';
 		$event->save();
-
-
 
 	}
 }

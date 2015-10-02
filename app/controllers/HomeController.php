@@ -19,6 +19,7 @@ class HomeController extends BaseController {
 	{
 		$sports = Sport::all();
 		$cities = Location::all();
+		/* pull list of cities for events from events table city column */
 		$sportDropdown = [];
 		$sportDropdown[-1] = 'Select a Sport';
 
