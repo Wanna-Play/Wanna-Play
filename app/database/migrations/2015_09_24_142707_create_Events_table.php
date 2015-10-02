@@ -26,8 +26,8 @@ class CreateEventsTable extends Migration {
 			$table->enum('gender', ['M', 'F', 'Co-Ed'])->nullable();
 			$table->integer('location_id')->unsigned();
 			$table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
-			$table->string('skill_level', 255);
-			$table->decimal('amount', 5, 2);
+			$table->enum('skill_level', ['beginner', 'intermediate', 'advanced', 'any']);
+			$table->decimal('amount', 5, 2)->nullable;
 			$table->string('description', 1500);
 			$table->string('event_image', 255)->nullable();
 
