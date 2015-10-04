@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="csrf-token" content="{{{ csrf_token() }}}">
 
@@ -48,7 +50,6 @@
 @include('includes.footer')
 
 
-<script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
 {{-- Bootstrap JS --}}
 <script src="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -57,6 +58,9 @@
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/js/jquery.tagsinput.js"></script>
+<script>window.jQuery || document.write('<script src="../libs/jquery/dist/jquery.min.js"><\/script>')</script>
+<script src="../bower/bower_components/vide/src/jquery.vide.js"></script>
+
 
 @yield('script')
 </body>

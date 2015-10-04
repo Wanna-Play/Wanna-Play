@@ -106,14 +106,6 @@ body {
     font-weight: normal;
 }
 
-
-#homePageImage {
-    /*background-image: url(/img/football-field.png);
-    background-repeat: no-repeat;
-    background-position: top right fixed;
-    background-size: cover;*/
-}
-
 h1 {
     font-family: 'Sanchez-Regular', serif;
     font-size: 5rem;
@@ -160,12 +152,18 @@ label {
     color: #000000;
 }
 
+
+.navbar-toggle {
+    border-radius: 0px;
+}
+
+
 .navbar-default {
 	background-color: transparent;
 	border-color: transparent;
 	background-image: none;
 	background-repeat: no-repeat;
-	border-radius: none;
+	border-radius: 0px;
 	box-shadow: none;
     margin-top: 15px;
 }
@@ -234,8 +232,7 @@ label {
 }
 
 #homePageSpecial > .container > .navbar-default .navbar-nav > li > a:hover {
-    color: #292900;
-    text-shadow: none;
+    color: yellow;
 }
 
 #homePageSpecial > .container > .navbar-default .navbar-nav > .logIn > a:hover {
@@ -442,7 +439,32 @@ hr {
         padding-right: 0px;
     }
 
+    .homePageImage {
+        background-image: url(/img/football.png);
+        background-repeat: no-repeat;
+        background-position: top right fixed;
+        z-index: -105;
+        background-size: auto;
+    }
+
+    #block {
+        display: none;
+    }
+
+    #belowtheImage {
+        margin-top: 624px;
+    }
 }
 
+@media (min-width: 768px) {
+    .homePageImage {
+        background: none;
+    }
+
+    #belowtheImage {
+        margin-top: 0px;
+    }
+    
+}
 
 
