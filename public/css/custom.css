@@ -380,6 +380,23 @@ hr {
     margin-bottom: 30px;
 }
 
+.btn {
+    border-radius: 0px;
+    background-image: none;
+}
+
+.btn-result {
+    background-color: #337ab7;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.btn-result:hover {
+    background-color: #296292;
+    color: #ffffff;
+    text-shadow: none;
+}
+
 /* Event create form */
 .dropdown-menu {
     margin-top: 34px;
