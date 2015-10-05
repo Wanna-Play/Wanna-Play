@@ -354,6 +354,40 @@ hr {
 }
 
 
+
+.btn-profile {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #99FFCC;
+    color: #ffffff;
+}
+
+.btn-profile:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #8AE6B8;
+    color: #ffffff;
+}
+
+.btn-password {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #FFCC66;
+    color: #ffffff;
+}
+
+.btn-password:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #FFD685;
+    color: #ffffff;
+}
+
+
 /* Search Results */
 #filterSearchResultsColumn {
     height: 100%;
