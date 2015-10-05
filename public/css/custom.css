@@ -139,7 +139,9 @@ h4 {
 }
 
 label {
-    font-style: italic;
+    font-family: 'Hind-Regular', sans-serif;
+    font-style: bold;
+    font-weight: bold;
 }
 
 
@@ -393,6 +395,20 @@ hr {
 
 .btn-result:hover {
     background-color: #296292;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+/* Event show page */
+
+.btn-delete {
+    background-color: #d9534f;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.btn-delete:hover {
+    background-color: #c12e2a;
     color: #ffffff;
     text-shadow: none;
 }

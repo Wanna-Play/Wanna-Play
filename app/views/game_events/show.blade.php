@@ -1,59 +1,76 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="col-xs-12">
+	<div id="showEvent">
 
-<title>Event Show Page</title>
+		<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
+        	<h1>{{{$event->event_name}}}</h1>
+        	<h2><small>Starts at: {{$event->start_time}} / Ends at: {{$event->end_time}}</small></h2>
 
-<div class = "container col-sm-12">
+			{{-- TO DO: ADD event image - make it conditional, if images then go to foreach; otherwise show post without images --}}
+			{{--@foreach($post->images as $image)
+					<img class="media-object" src="{{{$event->event_image}}}">
+				@endforeach
+		 	--}}
 
-	{{-- TO DO: ADD event imagge - make it conditional, if images then go to foreach; otherwise show post without images --}}
-	{{-- <div row>
-		<div class = "col-sm-4 showImage">
-			@foreach($post->images as $image)
-				<img class = "postImage" src="{{ '/' . $image->url }}">
-			@endforeach
-		</div>
- --}}
 
-	<div class = "col-sm-8">
-			
-		<h3><strong>Event Name: {{{$event->event_name}}}</strong></h3>
+			<img class="media media-object" src="{{{$event->event_image}}}">
 
-		{{-- add sport tags using jQuery plugin tagsinput --}}
-		<h3><strong>Sport Type: {{{$event->sport->sport}}}</strong></h3>
+			{{-- add sport tags using jQuery plugin tagsinput --}}
+			<div class="row">
+				<div class="col-sm-3">
+					<label>Sport:</label>
+					<p>{{{$event->sport->sport}}}</p>
+				</div>	
 
-		<h3><strong>Gender: {{{$event->gender}}}</strong></h3>
+				<div class="col-sm-3">
+					<label>Skill Level:</label> 
+					<p>{{{$event->skill_level}}}</p>
+				</div>
 
-		<h3><strong>Skill Level: {{{$event->skill_level}}}</strong></h3>
+				<div class="col-sm-3">
+					<label>Gender:</label> 
+					<p>{{{$event->gender}}}</p>
+				</div>
 
-		<h5><strong>Price: </strong>{{{number_format($event->amount, 2) }}}</h5>
+				<div class="col-sm-3">
+					<label>Price:</label>
+					<p>${{{number_format($event->amount, 2) }}}<p>
+				</div>
+			</div>
 
-		<h5><strong>Description: </strong>{{{Str::words($event->description, 20) }}}</h5>
+			<div class="row">
+				<div class="col-sm-12">
+					<label>Description:</label> 
+					<p>{{{Str::words($event->description, 20) }}}</p>
+				</div>
 
-		<h5><strong>Start Time: </strong>{{$event->start_time}}</h5>
+				<div class="col-sm-12">
+					<label>Event Created:</label> 
+					<p>{{$event->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}</p>
+				</div>
+			</div>
+				{{-- These buttons are visible to event organizer after logging in --}}
+				<a href="{{{action('GameEventsController@edit',$event->id)}}}" class="btn btn-result media">Edit Event</a>
 
-		<h5><strong>End Time: </strong>{{$event->end_time}}</h5>
+				<button id="delete" class="btn btn-delete media">Delete Event</button>
 
-		<h3><strong>Event Created: </strong>{{$event->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}</h3>
+				{{ Form::open(array('action' => array('GameEventsController@destroy', $event->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
+				{{ Form::close() }}
+				{{--  --}}
+				
+				{{-- These buttons are visible to people who are not logged in yet or those who are logged in and have not yet RSVP'd --}}
+				<a href="#" class="btn btn-result media">RSVP for Event</a> <a href="#" class="btn btn-result media">Contact Organizer</a>
 
-	
- 	<p></p>
-	<a href="{{{action('GameEventsController@edit',$event->id)}}}" class="btn btn-default">Edit Event<span class = "glyphicon glyphicon-pencil"></span></a>
+				<br>
 
-	<button id="delete" class="btn btn-danger">Delete Event<span class = "glyphicon glyphicon-trash"></span></button>
-
-	{{ Form::open(array('action' => array('GameEventsController@destroy', $event->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
-	{{ Form::close() }}
-	
-	{{-- <a href="#" class="btn btn-primary">Edit Event</a> --}}
-
-	<p><a href="#" class="btn btn-primary">RSVP for Event</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
-
-	<p><a href="#" class="btn btn-primary">Cancel RSVP</a> <a href="#" class="btn btn-primary">Contact Organizer</a></p>
-
-		</div>
+				{{-- These buttons are visible to people who have logged in and RSVP'd --}}
+				<a href="#" class="btn btn-result media">Cancel RSVP</a> <a href="#" class="btn btn-result media">Contact Organizer</a>
+			</div>
 		</div>
 	</div>
+</div>
 
 	<script type="text/javascript">
 		"use strict";
