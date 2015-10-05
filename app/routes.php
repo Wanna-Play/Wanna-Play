@@ -36,4 +36,3 @@ Route::resource('events', 'GameEventsController');
 #Users Resource
 Route::resource('users', 'UsersController');
 
-Route::resource('events', 'GameEventsController');
