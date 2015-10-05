@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="csrf-token" content="{{{ csrf_token() }}}">
 
@@ -32,39 +34,22 @@
 	<title>Wanna Play</title>
 </head>
 <body>
-	<div class="container">
-		@include('includes.navbar')
-	</div>
-
-	<div class="container">
-		<section id="contentContainer">
-			@yield('content')
-		</section>
-
-	</div>
-
-	<footer class="footer col-sm-12">
+	<div class="col-sm-12" id="notTheHome">
 		<div class="container">
-			<div class="col-sm-4">
-				<h4>About</h4>
-				<p>Wanna Play connects people who love to play sports in Texas!</p>
-				<p>This site was created as a capstone project for Codeup's Web development bootcamp.</p>
-			</div>
-
-			<div class="col-sm-4">
-				<h4>The Team</h4>
-				<p>Meet our dev team: Julie Buser, Amanda Ortiz, Rachel Pierce and Jordan Sandoval</p>
-			</div>
-
-			<div class="col-sm-4">
-				<h4>Contact</h4>
-				<p>Don't see the sport you love or your city on Wanna Play? Let us know! Email our team at <a href="#">hello@wannaplay.com</a> </p>
-			</div>
+			@include('includes.navbar')
 		</div>
-	</footer>
+
+		<div class="container">
+			<section id="contentContainer">
+				@yield('content')
+			</section>
+
+		</div>
+	</div>
+
+@include('includes.footer')
 
 
-<script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
 {{-- Bootstrap JS --}}
 <script src="/bower/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
@@ -73,6 +58,9 @@
 <script src="/bower/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="/js/jquery.tagsinput.js"></script>
+<script>window.jQuery || document.write('<script src="../libs/jquery/dist/jquery.min.js"><\/script>')</script>
+<script src="../bower/bower_components/vide/src/jquery.vide.js"></script>
+
 
 @yield('script')
 </body>

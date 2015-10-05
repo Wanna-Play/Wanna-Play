@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -20,13 +20,11 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="{{ action('GameEventsController@index') }}">Events</a></li>
 				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@doLogout') }}}">Logout</a></li>
 			</ul>
 			@else
 			<ul class="nav navbar-nav navbar-right">
-				<li><a class="linkNav" href="#">Sports</a></li>
 				<li><a class="linkNav" href="{{ action('GameEventsController@index') }}">Events</a></li>
 				<li class="logIn"><a class="linkNav" href="{{{ action('UsersController@login') }}}">Sign Up / Log In</a></li>
 			</ul>
@@ -34,3 +32,4 @@
 		</div><!--/.nav-collapse -->
 	</div><!--/.container-fluid -->
 </nav>
+

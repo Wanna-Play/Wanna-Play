@@ -44,30 +44,6 @@
 									</div>
 								</div>
 
-								<div class="form-group updateResultsSubmit">
-									<label for="sportResults">Start Date</label>
-									<div class="input-group">
-								  		<div class="input-group-addon"><input type="checkbox"></div>
-								  		<input type="text" class="form-control" id="sportResults">
-									</div>
-								</div>
-
-								<div class="form-group updateResultsSubmit">
-									<label for="sportResults">End Date</label>
-									<div class="input-group">
-								  		<div class="input-group-addon"><input type="checkbox"></div>
-								  		<input type="text" class="form-control" id="sportResults">
-									</div>
-								</div>
-
-								<div class="form-group updateResultsSubmit">
-									<label for="sportResults">ZIP Code</label>
-									<div class="input-group">
-								  		<div class="input-group-addon"><input type="checkbox"></div>
-								  		<input type="text" class="form-control" id="sportResults">
-									</div>
-								</div>
-
 								<button type="submit" class="btn btn-block updateResultsSubmit">Update results</button>
 							</form>
 						</div>

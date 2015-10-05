@@ -9,55 +9,50 @@
 
 	    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-2 col-md-8 col-md-offset-2 pull-left">
 	    	<h2>Your Profile</h2>
-	    	<div class="form-group" @if($errors->has('first_name')) has-error @endif>
-		    	<label>Full Name</label>
-		    	<p>{{ $user->first_name }} {{ $user->last_name }}</p>
-		    </div>
-
-    	<h3><strong>Favorite Sports: </strong>
-		<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
-			@foreach($user->sports as $sport)
-				{{{ ' [ ' . $sport->sport . ' ] ' }}}
-			@endforeach
-		</h3>
-
-	   {{--  	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('id')) has-error @endif>
-		    	<label>User ID</label>
-				<p>{{ $user->id }}</p>
-			</div> --}}
-
-	    	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
-		    	<label>City</label>
-				<p>{{ $user->city }}</p>
-			</div>
-
-			<div class="form-group col-xs-12 col-sm-3 noPaddingLeft noPaddingRight" @if($errors->has('zip')) has-error @endif>
-				<label>ZIP Code</label>
-				<p>{{ $user->zip }}</p>
-			</div>
-
-			<div class="form-group col-xs-12 col-sm-3 noPaddingLeft noPaddingRight" @if($errors->has('gender')) has-error @endif>
-				<label>Gender</label>
-				<p>{{ $user->gender }}</p>
-			</div>
-
-			<div class="form-group" @if($errors->has('email')) has-error @endif>
-				<label>Email</label>
-				<p>{{ $user->email }}</p>
-			</div>
+	    	<img class="media-object media" src="{{{$user->profile_picture}}}">
 
 			<div class="form-group" @if($errors->has('username')) has-error @endif>
 				<label>Username</label>
 				<p>{{ $user->username }}</p>
 			</div>
 
-    			{{-- <div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-					<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn btn-lg btn-block">Update Profile</a>
-				</div> --}}
+	    	<div class="form-group" @if($errors->has('first_name')) has-error @endif>
+		    	<label>Full Name</label>
+		    	<p>{{ $user->first_name }} {{ $user->last_name }}</p>
+		    </div>
 
-				<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn large btn-block">Update Profile<span class = "glyphicon glyphicon-pencil"></span></a>
-	    		</div>
+		<div class="form-group sports" @if($errors->has('sports')) has-error @endif>
+    		<label>Favorite Sports</label>
+    		<p>
+			@foreach($user->sports as $sport)
+				{{{ ' [ ' . $sport->sport . ' ] ' }}}
+			@endforeach
+			</p>
+		</div>
+
+    	<div class="form-group col-xs-12 col-sm-6 pull-left noPaddingLeft" @if($errors->has('city')) has-error @endif>
+	    	<label>City</label>
+			<p>{{ $user->city }}</p>
+		</div>
+
+		<div class="form-group col-xs-12 col-sm-3 noPaddingLeft noPaddingRight" @if($errors->has('zip')) has-error @endif>
+			<label>ZIP Code</label>
+			<p>{{ $user->zip }}</p>
+		</div>
+
+		<div class="form-group col-xs-12 col-sm-3 noPaddingLeft noPaddingRight" @if($errors->has('gender')) has-error @endif>
+			<label>Gender</label>
+			<p>{{ $user->gender }}</p>
+		</div>
+
+		<div class="form-group" @if($errors->has('email')) has-error @endif>
+			<label>Email</label>
+			<p>{{ $user->email }}</p>
+		</div>
+
+		<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
+			<a href="{{{ action('UsersController@edit', $user->id) }}}" class="btn btn-lg btn-profile">Update Profile</a>
+		</div>
 	</section>
 
 	<section id="updatePasswordShow">
@@ -66,7 +61,7 @@
 			<p>Please note, to update your password, we will redirect you to a separate page.</p>
 
 			<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-				<a href="#" class="btn btn-lg btn-block">Update Password</a>
+				<a href="#" class="btn btn-lg btn-password">Update Password</a>
 			</div>
 		</div>
 	</section>
@@ -83,9 +78,9 @@
 			{{-- Events that the user has posted or RSVP'd to will be listed in this section. Couldn't get my syntax to work, however, if someone can make that work, that'd be awesome. --}}
 
 			<ul>
-				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
-				<li>Oct. 3rd, 7 a.m. | Swimming at San Pedro Springs Park <a href="#" class="btn btn-xs btn-primary">Cancel RSVP</a></li>
-				<li>Oct. 5th, 6 p.m. | Golf at Brackenridge <a href="#" class="btn btn-xs btn-primary">Edit</a></li>
+				<li>Oct. 1st, 6 p.m. | Basketball at Woodlawn Park <a href="#" class="btn btn-xs btn-result">Edit</a></li>
+				<li>Oct. 3rd, 7 a.m. | Swimming at San Pedro Springs Park <a href="#" class="btn btn-xs btn-result">Cancel RSVP</a></li>
+				<li>Oct. 5th, 6 p.m. | Golf at Brackenridge <a href="#" class="btn btn-xs btn-result">Edit</a></li>
 			</ul>
 
 			<h3>Past Events</h3>

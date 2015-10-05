@@ -106,14 +106,6 @@ body {
     font-weight: normal;
 }
 
-
-#homePageImage {
-    /*background-image: url(/img/football-field.png);
-    background-repeat: no-repeat;
-    background-position: top right fixed;
-    background-size: cover;*/
-}
-
 h1 {
     font-family: 'Sanchez-Regular', serif;
     font-size: 5rem;
@@ -147,7 +139,9 @@ h4 {
 }
 
 label {
-    font-style: italic;
+    font-family: 'Hind-Regular', sans-serif;
+    font-style: bold;
+    font-weight: bold;
 }
 
 
@@ -160,12 +154,18 @@ label {
     color: #000000;
 }
 
+
+.navbar-toggle {
+    border-radius: 0px;
+}
+
+
 .navbar-default {
 	background-color: transparent;
 	border-color: transparent;
 	background-image: none;
 	background-repeat: no-repeat;
-	border-radius: none;
+	border-radius: 0px;
 	box-shadow: none;
     margin-top: 15px;
 }
@@ -176,16 +176,27 @@ label {
 }
 
 .navbar-default .navbar-nav > .logIn > a:hover {
-    background-color: #6E93B8 !important;
+    background-color: #ADCDEE !important;
     color: #ffffff;
     background-image: none;
 }
 
-#homePageImage > .container > .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+#notTheHome > .container > .navbar-default .navbar-nav > li > a {
+    color: #777;
     text-shadow: none;
 }
 
+#notTheHome > .container > .navbar-default .navbar-nav > li > a:hover {
+    color: #292900;
+}
+
+#notTheHome > .container > .navbar-default .navbar-nav > .logIn > a {
+    color: #ffffff;
+}
+
+#notTheHome > .container > .navbar-default .navbar-nav > .logIn > a:hover {
+    color: #ffffff;
+}
 
 
 
@@ -214,7 +225,20 @@ label {
 }
 
 #homePageButton:hover {
-   background-color: #CC7A29 !important;
+   background-color: #FFAD5C !important;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > li > a:hover {
+    color: #000;
+}
+
+#homePageSpecial > .container > .navbar-default .navbar-nav > .logIn > a:hover {
+    color: #ffffff;
+    text-shadow: none;
 }
 
 .center-container {
@@ -315,7 +339,15 @@ hr {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #8AB8E6;
+    background-color: #f7e66d;
+    color: #ffffff;
+}
+
+.btn-signUp:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #F9EB8A;
     color: #ffffff;
 }
 
@@ -326,6 +358,38 @@ hr {
 /* Dashboard */
 #playerStats {
     margin-bottom: 50px;
+}
+
+.btn-profile {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #f7e66d;
+    color: #ffffff;
+}
+
+.btn-profile:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #F9EB8A;
+    color: #ffffff;
+}
+
+.btn-password {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #FF9933;
+    color: #ffffff;
+}
+
+.btn-password:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #FFAD5C;
+    color: #ffffff;
 }
 
 
@@ -355,6 +419,37 @@ hr {
 
 .media {
     margin-bottom: 30px;
+}
+
+.btn {
+    border-radius: 0px;
+    background-image: none;
+}
+
+.btn-result {
+    background-color: #337ab7;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.btn-result:hover {
+    background-color: #296292;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+/* Event show page */
+
+.btn-delete {
+    background-color: #d9534f;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+.btn-delete:hover {
+    background-color: #c12e2a;
+    color: #ffffff;
+    text-shadow: none;
 }
 
 /* Event create form */
@@ -399,6 +494,24 @@ hr {
     background-color: #efefef;
 }
 
+.btn-email {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #4C4C78;
+    color: #ffffff;
+}
+
+.btn-email:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #5E5E86;
+    color: #ffffff;
+}
+
+
+
 /* Media queries */
 @media (max-width: 767px) {
     .noPaddingLeft {
@@ -416,7 +529,32 @@ hr {
         padding-right: 0px;
     }
 
+    .homePageImage {
+        background-image: url(/img/football.png);
+        background-repeat: no-repeat;
+        background-position: top right fixed;
+        z-index: -105;
+        background-size: auto;
+    }
+
+    #block {
+        display: none;
+    }
+
+    #belowtheImage {
+        margin-top: 624px;
+    }
 }
 
+@media (min-width: 768px) {
+    .homePageImage {
+        background: none;
+    }
+
+    #belowtheImage {
+        margin-top: 0px;
+    }
+    
+}
 
 
