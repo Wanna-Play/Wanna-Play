@@ -28,7 +28,13 @@
 					{{ Form::label('contact_message','Message') }}
 					{{ Form::textarea('contact_message', null, ['class' => 'form-control']) }}
 				</div>
+
+				<div class="col-sm-offset-6 col-sm-6 media">
+					{{ Form::button('Send Email', array('class' => 'btn btn-lg btn-email', 'type' => 'submit')) }}
+				</div>
 			</div>
+
+			
 			{{ Form::close() }}
 		</div>					
 		</div>

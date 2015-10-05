@@ -176,7 +176,7 @@ label {
 }
 
 .navbar-default .navbar-nav > .logIn > a:hover {
-    background-color: #6E93B8 !important;
+    background-color: #ADCDEE !important;
     color: #ffffff;
     background-image: none;
 }
@@ -225,16 +225,15 @@ label {
 }
 
 #homePageButton:hover {
-   background-color: #CC7A29 !important;
+   background-color: #FFAD5C !important;
 }
 
 #homePageSpecial > .container > .navbar-default .navbar-nav > li > a {
     color: #ffffff;
-    text-shadow: none;
 }
 
 #homePageSpecial > .container > .navbar-default .navbar-nav > li > a:hover {
-    color: yellow;
+    color: #000;
 }
 
 #homePageSpecial > .container > .navbar-default .navbar-nav > .logIn > a:hover {
@@ -340,7 +339,15 @@ hr {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #8AB8E6;
+    background-color: #f7e66d;
+    color: #ffffff;
+}
+
+.btn-signUp:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #F9EB8A;
     color: #ffffff;
 }
 
@@ -353,13 +360,11 @@ hr {
     margin-bottom: 50px;
 }
 
-
-
 .btn-profile {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #99FFCC;
+    background-color: #f7e66d;
     color: #ffffff;
 }
 
@@ -367,7 +372,7 @@ hr {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #8AE6B8;
+    background-color: #F9EB8A;
     color: #ffffff;
 }
 
@@ -375,7 +380,7 @@ hr {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #FFCC66;
+    background-color: #FF9933;
     color: #ffffff;
 }
 
@@ -383,7 +388,7 @@ hr {
     display: block;
     width: 100%;
     border-radius: 0;
-    background-color: #FFD685;
+    background-color: #FFAD5C;
     color: #ffffff;
 }
 
@@ -488,6 +493,24 @@ hr {
     max-height: 100%;
     background-color: #efefef;
 }
+
+.btn-email {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #4C4C78;
+    color: #ffffff;
+}
+
+.btn-email:hover {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    background-color: #5E5E86;
+    color: #ffffff;
+}
+
+
 
 /* Media queries */
 @media (max-width: 767px) {

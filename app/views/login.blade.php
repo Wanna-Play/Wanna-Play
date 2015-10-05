@@ -41,7 +41,7 @@
 				</div>
 
 				<div class="col-sm-offset-3 col-sm-6 col-sm-offset-3 media">
-					{{ Form::button('Sign Up', array('class' => 'btn btn-lg btn-block', 'type' => 'submit')) }}
+					{{ Form::button('Sign Up', array('class' => 'btn btn-lg btn-signUp', 'type' => 'submit')) }}
 				</div>
 			{{ Form::close() }}
 		</div>
