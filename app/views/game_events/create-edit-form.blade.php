@@ -6,11 +6,11 @@
             {{ Form::label('event_name', 'Event Name') }}
             {{ Form::text('event_name', null, ['class' => 'form-control', 'placeholder' => 'Enter Your Event\'s Name']) }}
         </div>
-        
+
         <div class="form-group">
             {{ Form::label('select_sport', 'Select Sport') }}<br>
             <div class="dropdown form-group" id="select_sport">
-                {{ Form::select('select_sport', $sportDropdown, null, ['class' => 'form-control dropdown-toggle calendarSelect', 'aria-labelledby' => 'sportDropdown']) }}
+                {{ Form::select('select_sport', $dropdownS, null, ['class' => 'form-control dropdown-toggle calendarSelect', 'aria-labelledby' => 'dropdownS']) }}
             </div>
         </div>
 
@@ -97,7 +97,7 @@
 
 
 <script type="text/javascript">
-   
+
     $('#phone-number')
 
     .keydown(function (e) {
@@ -114,23 +114,23 @@
             }
             if ($phone.val().length === 5) {
                 $phone.val($phone.val() + ' ');
-            }           
+            }
             if ($phone.val().length === 9) {
                 $phone.val($phone.val() + '-');
             }
         }
 
         // Allow numeric (and tab, backspace, delete) keys only
-        return (key == 8 || 
+        return (key == 8 ||
                 key == 9 ||
                 key == 46 ||
                 (key >= 48 && key <= 57) ||
-                (key >= 96 && key <= 105)); 
+                (key >= 96 && key <= 105));
     })
-    
+
     .bind('focus click', function () {
         $phone = $(this);
-        
+
         if ($phone.val().length === 0) {
             $phone.val('(');
         }
@@ -139,10 +139,10 @@
             $phone.val('').val(val); // Ensure cursor remains at the end
         }
     })
-    
+
     .blur(function () {
         $phone = $(this);
-        
+
         if ($phone.val() === '(') {
             $phone.val('');
         }

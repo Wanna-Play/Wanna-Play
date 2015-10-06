@@ -20,7 +20,7 @@ class CreateLocationsTable extends Migration {
 			$table->string('address', 255);
 			$table->string('city', 255);
 			$table->char('zip', 5);
-			$table->string('phone', 12);
+			$table->string('phone', 15);
 			$table->string('url', 255)->nullable();
 
 
