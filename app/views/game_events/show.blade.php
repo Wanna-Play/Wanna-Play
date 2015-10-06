@@ -16,21 +16,22 @@
 
 
 			<img class="media media-object" src="{{{$event->event_image}}}">
-
+			<label>Location:</label>
+			<p>{{ "{$event->location->name_of_location}, {$event->location->address}, {$event->location->city}, {$event->location->zip}" }}</p>
 			{{-- add sport tags using jQuery plugin tagsinput --}}
 			<div class="row">
 				<div class="col-sm-3">
 					<label>Sport:</label>
 					<p>{{{$event->sport->sport}}}</p>
-				</div>	
+				</div>
 
 				<div class="col-sm-3">
-					<label>Skill Level:</label> 
+					<label>Skill Level:</label>
 					<p>{{{$event->skill_level}}}</p>
 				</div>
 
 				<div class="col-sm-3">
-					<label>Gender:</label> 
+					<label>Gender:</label>
 					<p>{{{$event->gender}}}</p>
 				</div>
 
@@ -42,31 +43,30 @@
 
 			<div class="row">
 				<div class="col-sm-12">
-					<label>Description:</label> 
+					<label>Description:</label>
 					<p>{{{Str::words($event->description, 20) }}}</p>
 				</div>
 
 				<div class="col-sm-12">
-					<label>Event Created:</label> 
+					<label>Event Created:</label>
 					<p>{{$event->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A')}}</p>
 				</div>
 			</div>
 				{{-- These buttons are visible to event organizer after logging in --}}
+				@if(Auth::id() == $event->organizer_id)
 				<a href="{{{action('GameEventsController@edit',$event->id)}}}" class="btn btn-result media">Edit Event</a>
 
 				<button id="delete" class="btn btn-delete media">Delete Event</button>
 
 				{{ Form::open(array('action' => array('GameEventsController@destroy', $event->id), 'method' => 'DELETE', 'id' => 'formDelete')) }}
 				{{ Form::close() }}
+				@else
 				{{--  --}}
-				
+
 				{{-- These buttons are visible to people who are not logged in yet or those who are logged in and have not yet RSVP'd --}}
 				<a href="#" class="btn btn-result media">RSVP for Event</a> <a href="#" class="btn btn-result media">Contact Organizer</a>
 
-				<br>
-
-				{{-- These buttons are visible to people who have logged in and RSVP'd --}}
-				<a href="#" class="btn btn-result media">Cancel RSVP</a> <a href="#" class="btn btn-result media">Contact Organizer</a>
+				@endif
 			</div>
 		</div>
 	</div>

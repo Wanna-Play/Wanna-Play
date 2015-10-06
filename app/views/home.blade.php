@@ -43,7 +43,7 @@
 			<div class="container">
 				@include('includes.navbar')
 			</div>
-            
+
             <div class="container">
 	        	<section id="contentContainer">
 
@@ -72,9 +72,9 @@
 									                {{ Form::select('select_city', $cityDropdown, null, ['class' => 'form-control dropdown-toggle calendarSelect', 'aria-labelledby' => 'cityDropdown']) }}
 									            </div>
 									        </div>
-											
+
 											<div class="col-sm-12 col-md-offset-1 col-md-10 col-md-offset-1">
-												<a href="#" class="btn btn-lg btn-block" id="homePageButton">Check the games</a>
+												<a href="{{ action('GameEventsController@index') }}" class="btn btn-lg btn-block" id="homePageButton">Check the games</a>
 											</div>
 										{{ Form::close() }}
 									</div>
@@ -107,14 +107,14 @@
 					<img src="/img/amanda.jpg" class="img-circle devTeamPic">
 					<h4>Amanda Ortiz</h4>
 					<p>Originated project concept, primary responsibilities include database creation and video production.</p>
-					<p>Email Amanda</p>
+					<p><a href="mailto:manda9291@yahoo.com">Email Amanda</a></p>
 				</div>
 
 				<div class="col-md-6">
 					<img src="/img/jordan.jpg" class="img-circle devTeamPic">
 					<h4>Jordan Sandoval</h4>
 					<p>Primary responsibilities cover the database and back-end development, with some work on front-end of the site.</p>
-					<p>Email Jordan</p>
+					<p><a href="mailto:jordansand1021@gmail.com">Email Jordan</a></p>
 				</div>
 			</div>
 			<div class="row">
@@ -122,21 +122,21 @@
 					<img src="/img/rachel.jpg" class="img-circle devTeamPic">
 					<h4>Rachel Pierce</h4>
 					<p>Mainly focused on front-end design with some work on the back-end side.</p>
-					<p>Email Rachel</p>
+					<p><a href="mailto:ciaorachel@gmail.com">Email Rachel</a></p>
 				</div>
 
 				<div class="col-md-6">
 					<img src="/img/julie.jpg" class="img-circle devTeamPic">
 					<h4>Julie Buser</h4>
 					<p>Focus on front-end and back-end integration and development, particularly for the site's tagging feature.</p>
-					<p>Email Julie</p>
+					<p><a href="mailto:jbuser2013@gmail.com">Email Julie</a></p>
 				</div>
 			</div>
 
 		</div>
 	</div>
-	
-	
+
+
 	@include('includes.footer')
 
 

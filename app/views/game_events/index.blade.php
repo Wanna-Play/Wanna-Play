@@ -20,16 +20,16 @@
 								<div class="form-group">
 									<label for="sportResults">Sport</label>
 									<div class="input-group">
-								  		<div class="input-group-addon"><input type="checkbox"></div>
-								  		<input type="text" class="form-control" id="sportResults">
+								  		<div class="input-group-addon"><input type="checkbox" checked="checked"></div>
+								  		<input type="text" class="form-control" id="sportResults" value="Soccer">
 									</div>
 								</div>
 
 								<div class="form-group updateResultsSubmit">
 									<label for="sportResults">City</label>
 									<div class="input-group">
-								  		<div class="input-group-addon"><input type="checkbox"></div>
-								  		<input type="text" class="form-control" id="sportResults">
+								  		<div class="input-group-addon"><input type="checkbox" checked="checked"></div>
+								  		<input type="text" class="form-control" id="sportResults" value="San Antonio">
 									</div>
 								</div>
 
@@ -65,7 +65,7 @@
 			</div>
 	    </div>
 	    <div class="col-sm-9 col-md-10 main">
-			
+
 			{{ $events->links() }}
 
 			@foreach($events as $event)
@@ -78,7 +78,8 @@
 				</div>
 				<div class="media-body">
 					<h3 class="noHeaderSpace">{{{$event->event_name}}}</h3>
-						<p>123 Broadway St., San Antonio, TX 78209</p> {{-- Need to get addresses for events from database --}}
+						<p>{{ "{$event->location->name_of_location}, {$event->location->address}, {$event->location->city}, {$event->location->zip}" }}</p>
+						 {{-- Need to get addresses for events from database --}}
 						<p>Starts at: {{$event->start_time}} | Ends at: {{$event->end_time}}</p> {{-- Need start and end times formatted like: ->format('h:i:s A') --}}
 						<p>Gender: {{{$event->gender}}} | Skill Level: {{{$event->skill_level}}}</p>
 						<p><a href="{{{action('GameEventsController@show', $event->id)}}}" class="btn btn-result" role="button">See More</a></p>

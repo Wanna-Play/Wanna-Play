@@ -51,14 +51,14 @@ class GameEventsController extends \BaseController {
 		// }
 
 		$sports = Sport::all();
-		$sportDropdown = [];
-		$sportDropdown[-1] = 'Select This Event\'s Sport';
+		$dropdownS = [];
+		$dropdownS[-1] = 'Select This Event\'s Sport';
 
 		foreach ($sports as $sport) {
-			$sportDropdown[$sport->id] = $sport->sport;
+			$dropdownS[$sport->id] = $sport->sport;
 		}
 
-		return View::make('game_events.create')->with('sportDropdown', $sportDropdown);
+		return View::make('game_events.create')->with('dropdownS', $dropdownS);
 	}
 	/**
 	 * Store a newly created gameevent in storage.
@@ -112,22 +112,30 @@ class GameEventsController extends \BaseController {
 	public function edit($id)
 	{
 		$event = GameEvent::find($id);
+		$sports    = Sport::all();
+		$locations = Location::all();
+
 		if (!$event) {
 			App::abort(404);
 		}
 		if(!Auth::check()){
 			return Redirect::action('UsersController@doLogin');
 		}elseif ((Auth::id() == $event->organizer_id) || (Auth::user()->role == 'admin')) {
-			$locations    = Location::all();
 
-			$dropdown     = [];
-			$dropdown[-1] = 'Add new address';
+			$dropdownL     = [];
+			$dropdownL[-1] = 'Add new address';
 			foreach ($locations as $location) {
+				$dropdownL[$location->$id] = $location->name_of_location;
+			}
 
+			$dropdownS     = [];
+			$dropdownS[-1] = 'Select Sport';
+			foreach ($sports as $sport) {
+				$dropdownS[$sport->$id] = $sport->sport;
+			}
 
-			return View::make('game_events.edit')->with('sportDropdown', $sportDropdown);
+			return View::make('game_events.edit')->with('dropdown', $dropdownL)->with('dropdownS', $dropdownS)->with('event', $event);
 
-			} 
 		}else {
 			Session::flash('errorMessage', 'Access not authorized');
 			return Redirect::action('GameEventsController@index');

@@ -19,7 +19,7 @@
         	<h2>Edit an Event</h2>
         	{{ Form::model($event, array('action' => array('GameEventsController@update', $event->id), 'method' => 'PUT', 'files' => true)) }}
        		@include('game_events.create-edit-form')
-        
+
 	        <div class="form-group">
 				{{ Form::label('organizer_contact', 'Organizer Contact Agreement') }}
 
@@ -39,7 +39,7 @@
 </div>
 
 
-        
+
 
 </div>
 @stop
@@ -56,12 +56,12 @@
      return moment(this).format(format);
    };
    jQuery('#startsAtDateTimePicker').datetimepicker({
-       format:'YYYY-MM-DD h:mm a',
+       format:'dddd, MMM. D, YYYY h:mm a',
        formatTime:'h:mm a',
        formatDate:'DD-MM-YYYY'
    });
    jQuery('#endsAtDateTimePicker').datetimepicker({
-       format:'YYYY-MM-DD h:mm a',
+       format:'dddd, MMM. D, YYYY h:mm a',
        formatTime:'h:mm a',
        formatDate:'DD-MM-YYYY'
    });
