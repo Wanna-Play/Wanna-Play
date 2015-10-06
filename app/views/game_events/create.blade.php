@@ -13,7 +13,7 @@
         	{{ Form::open(array('action' => 'GameEventsController@store', 'files' => true)) }}
 
        		@include('game_events.create-edit-form')
-        
+
 	        <div class="form-group">
 				{{ Form::label('organizer_contact', 'Organizer Contact Agreement') }}
 				<p>Organizers <em>must</em> agree to be contacted by players who register for the event and have questions related to the event.</p>
@@ -56,12 +56,12 @@ $(document).ready(function(){
      return moment(this).format(format);
    };
    jQuery('#startsAtDateTimePicker').datetimepicker({
-       format:'YYYY-MM-DD h:mm a',
+       format:'dddd, MMM. D, YYYY h:mm a',
        formatTime:'h:mm a',
        formatDate:'DD-MM-YYYY'
    });
    jQuery('#endsAtDateTimePicker').datetimepicker({
-       format:'YYYY-MM-DD h:mm a',
+       format:'dddd, MMM. D, YYYY h:mm a',
        formatTime:'h:mm a',
        formatDate:'DD-MM-YYYY'
    });
